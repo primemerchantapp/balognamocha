@@ -805,33 +805,34 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                                     ),
                                                   ),
                                                 ),
-                                                Container(
-                                                  width: 110.0,
-                                                  height: 100.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                    border: Border.all(
-                                                      color: const Color(0x4164B5F6),
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    context
+                                                        .pushNamed('MapView');
+                                                  },
+                                                  child: Container(
+                                                    width: 110.0,
+                                                    height: 100.0,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .primaryBackground,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                      border: Border.all(
+                                                        color:
+                                                            const Color(0x4164B5F6),
+                                                      ),
                                                     ),
-                                                  ),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      context
-                                                          .pushNamed('MapView');
-                                                    },
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
