@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "786974954352",
+    "project_id": "tudds-ccd0wn",
+    "storage_bucket": "tudds-ccd0wn.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:786974954352:android:95ddf0a0cf0baa619bb5b5",
+        "android_client_info": {
+          "package_name": "com.prime.merchantsapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdbZMsBlWV2OmznR8EYfHNZUHxI_pULHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
