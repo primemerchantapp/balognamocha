@@ -80,6 +80,16 @@ class ServicesRecord extends FirestoreRecord {
   DocumentReference? get createdby => _createdby;
   bool hasCreatedby() => _createdby != null;
 
+  // "image2" field.
+  String? _image2;
+  String get image2 => _image2 ?? '';
+  bool hasImage2() => _image2 != null;
+
+  // "image3" field.
+  String? _image3;
+  String get image3 => _image3 ?? '';
+  bool hasImage3() => _image3 != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _description = snapshotData['description'] as String?;
@@ -94,6 +104,8 @@ class ServicesRecord extends FirestoreRecord {
     _city = snapshotData['city'] as String?;
     _address = snapshotData['address'] as LatLng?;
     _createdby = snapshotData['createdby'] as DocumentReference?;
+    _image2 = snapshotData['image2'] as String?;
+    _image3 = snapshotData['image3'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -144,6 +156,8 @@ Map<String, dynamic> createServicesRecordData({
   String? city,
   LatLng? address,
   DocumentReference? createdby,
+  String? image2,
+  String? image3,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -160,6 +174,8 @@ Map<String, dynamic> createServicesRecordData({
       'city': city,
       'address': address,
       'createdby': createdby,
+      'image2': image2,
+      'image3': image3,
     }.withoutNulls,
   );
 
@@ -183,7 +199,9 @@ class ServicesRecordDocumentEquality implements Equality<ServicesRecord> {
         e1?.image == e2?.image &&
         e1?.city == e2?.city &&
         e1?.address == e2?.address &&
-        e1?.createdby == e2?.createdby;
+        e1?.createdby == e2?.createdby &&
+        e1?.image2 == e2?.image2 &&
+        e1?.image3 == e2?.image3;
   }
 
   @override
@@ -200,7 +218,9 @@ class ServicesRecordDocumentEquality implements Equality<ServicesRecord> {
         e?.image,
         e?.city,
         e?.address,
-        e?.createdby
+        e?.createdby,
+        e?.image2,
+        e?.image3
       ]);
 
   @override

@@ -17,3 +17,4 @@ export '/pages/create_services/create_services_widget.dart'
     show CreateServicesWidget;
 export '/pages/create_product/create_product_widget.dart'
     show CreateProductWidget;
+export '/pages/shoping/shoping_widget.dart' show ShopingWidget;

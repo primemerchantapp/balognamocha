@@ -112,9 +112,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Movies',
           path: '/movies',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Movies')
-              : const MoviesWidget(),
+          builder: (context, params) => const MoviesWidget(),
         ),
         FFRoute(
           name: 'Profile',
@@ -138,8 +136,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Shop',
           path: '/shop',
-          builder: (context, params) =>
-              params.isEmpty ? const NavBarPage(initialPage: 'Shop') : const ShopWidget(),
+          builder: (context, params) => const ShopWidget(),
         ),
         FFRoute(
           name: 'MapViewDetails',
@@ -168,8 +165,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'CreateProduct',
           path: '/createProduct',
           builder: (context, params) => const CreateProductWidget(),
+        ),
+        FFRoute(
+          name: 'Shoping',
+          path: '/shoping',
+          builder: (context, params) => const ShopingWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
+      observers: [routeObserver],
     );
 
 extension NavParamExtensions on Map<String, String?> {

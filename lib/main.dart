@@ -132,9 +132,7 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'MapView': const MapViewWidget(),
-      'Shop': const ShopWidget(),
       'HomePrime': const HomePrimeWidget(),
-      'Movies': const MoviesWidget(),
       'Profile': const ProfileWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
@@ -163,27 +161,11 @@ class _NavBarPageState extends State<NavBarPage> {
             tooltip: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.shopping_cart_rounded,
-              size: 24.0,
-            ),
-            label: 'Shop',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
             icon: FaIcon(
               FontAwesomeIcons.magento,
               size: 44.0,
             ),
             label: 'Home',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.checklist_rtl_outlined,
-              size: 24.0,
-            ),
-            label: 'Movie',
             tooltip: '',
           ),
           BottomNavigationBarItem(
