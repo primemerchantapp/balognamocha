@@ -120,6 +120,21 @@ class UsersRecord extends FirestoreRecord {
   LatLng? get located => _located;
   bool hasLocated() => _located != null;
 
+  // "qr_data_sharing" field.
+  String? _qrDataSharing;
+  String get qrDataSharing => _qrDataSharing ?? '';
+  bool hasQrDataSharing() => _qrDataSharing != null;
+
+  // "fb" field.
+  String? _fb;
+  String get fb => _fb ?? '';
+  bool hasFb() => _fb != null;
+
+  // "whatsapp" field.
+  String? _whatsapp;
+  String get whatsapp => _whatsapp ?? '';
+  bool hasWhatsapp() => _whatsapp != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -142,6 +157,9 @@ class UsersRecord extends FirestoreRecord {
     _team = snapshotData['team'] as String?;
     _mayaNumber = snapshotData['mayaNumber'] as String?;
     _located = snapshotData['located'] as LatLng?;
+    _qrDataSharing = snapshotData['qr_data_sharing'] as String?;
+    _fb = snapshotData['fb'] as String?;
+    _whatsapp = snapshotData['whatsapp'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -199,6 +217,9 @@ Map<String, dynamic> createUsersRecordData({
   String? team,
   String? mayaNumber,
   LatLng? located,
+  String? qrDataSharing,
+  String? fb,
+  String? whatsapp,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -223,6 +244,9 @@ Map<String, dynamic> createUsersRecordData({
       'team': team,
       'mayaNumber': mayaNumber,
       'located': located,
+      'qr_data_sharing': qrDataSharing,
+      'fb': fb,
+      'whatsapp': whatsapp,
     }.withoutNulls,
   );
 
@@ -254,7 +278,10 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.address == e2?.address &&
         e1?.team == e2?.team &&
         e1?.mayaNumber == e2?.mayaNumber &&
-        e1?.located == e2?.located;
+        e1?.located == e2?.located &&
+        e1?.qrDataSharing == e2?.qrDataSharing &&
+        e1?.fb == e2?.fb &&
+        e1?.whatsapp == e2?.whatsapp;
   }
 
   @override
@@ -279,7 +306,10 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.address,
         e?.team,
         e?.mayaNumber,
-        e?.located
+        e?.located,
+        e?.qrDataSharing,
+        e?.fb,
+        e?.whatsapp
       ]);
 
   @override

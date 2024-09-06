@@ -1,5 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -45,8 +43,6 @@ class _CreateServicesWidgetState extends State<CreateServicesWidget> {
 
     _model.salesPriceTextController ??= TextEditingController();
     _model.salesPriceFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -64,7 +60,7 @@ class _CreateServicesWidgetState extends State<CreateServicesWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
           title: Column(
             mainAxisSize: MainAxisSize.max,
@@ -75,6 +71,7 @@ class _CreateServicesWidgetState extends State<CreateServicesWidget> {
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily:
                           FlutterFlowTheme.of(context).headlineMediumFamily,
+                      color: FlutterFlowTheme.of(context).alternate,
                       letterSpacing: 0.0,
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
                           FlutterFlowTheme.of(context).headlineMediumFamily),
@@ -184,7 +181,7 @@ class _CreateServicesWidgetState extends State<CreateServicesWidget> {
                                                               validateFileFormat(
                                                                   m.storagePath,
                                                                   context))) {
-                                                        setState(() => _model
+                                                        safeSetState(() => _model
                                                                 .isDataUploading1 =
                                                             true);
                                                         var selectedUploadedFiles =
@@ -241,7 +238,7 @@ class _CreateServicesWidgetState extends State<CreateServicesWidget> {
                                                                     .length ==
                                                                 selectedMedia
                                                                     .length) {
-                                                          setState(() {
+                                                          safeSetState(() {
                                                             _model.uploadedLocalFile1 =
                                                                 selectedUploadedFiles
                                                                     .first;
@@ -250,7 +247,7 @@ class _CreateServicesWidgetState extends State<CreateServicesWidget> {
                                                                     .first;
                                                           });
                                                         } else {
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                           return;
                                                         }
                                                       }
@@ -295,7 +292,7 @@ class _CreateServicesWidgetState extends State<CreateServicesWidget> {
                                                               validateFileFormat(
                                                                   m.storagePath,
                                                                   context))) {
-                                                        setState(() => _model
+                                                        safeSetState(() => _model
                                                                 .isDataUploading2 =
                                                             true);
                                                         var selectedUploadedFiles =
@@ -352,7 +349,7 @@ class _CreateServicesWidgetState extends State<CreateServicesWidget> {
                                                                     .length ==
                                                                 selectedMedia
                                                                     .length) {
-                                                          setState(() {
+                                                          safeSetState(() {
                                                             _model.uploadedLocalFile2 =
                                                                 selectedUploadedFiles
                                                                     .first;
@@ -361,7 +358,7 @@ class _CreateServicesWidgetState extends State<CreateServicesWidget> {
                                                                     .first;
                                                           });
                                                         } else {
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                           return;
                                                         }
                                                       }
@@ -406,7 +403,7 @@ class _CreateServicesWidgetState extends State<CreateServicesWidget> {
                                                               validateFileFormat(
                                                                   m.storagePath,
                                                                   context))) {
-                                                        setState(() => _model
+                                                        safeSetState(() => _model
                                                                 .isDataUploading3 =
                                                             true);
                                                         var selectedUploadedFiles =
@@ -463,7 +460,7 @@ class _CreateServicesWidgetState extends State<CreateServicesWidget> {
                                                                     .length ==
                                                                 selectedMedia
                                                                     .length) {
-                                                          setState(() {
+                                                          safeSetState(() {
                                                             _model.uploadedLocalFile3 =
                                                                 selectedUploadedFiles
                                                                     .first;
@@ -472,7 +469,7 @@ class _CreateServicesWidgetState extends State<CreateServicesWidget> {
                                                                     .first;
                                                           });
                                                         } else {
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                           return;
                                                         }
                                                       }
@@ -1497,47 +1494,8 @@ class _CreateServicesWidgetState extends State<CreateServicesWidget> {
                       padding: const EdgeInsetsDirectional.fromSTEB(
                           16.0, 12.0, 16.0, 12.0),
                       child: FFButtonWidget(
-                        onPressed: () async {
-                          var servicesRecordReference =
-                              ServicesRecord.collection.doc();
-                          await servicesRecordReference
-                              .set(createServicesRecordData(
-                            name: _model.productNameTextController.text,
-                            description: _model.addressTextController1.text,
-                            price: double.tryParse(
-                                _model.priceTextController.text),
-                            salePrice: double.tryParse(
-                                _model.salesPriceTextController.text),
-                            image: _model.uploadedFileUrl1,
-                            createdby: currentUserReference,
-                            city: _model.addressTextController1.text,
-                            specifications: _model.addressTextController2.text,
-                            createdAt: getCurrentTimestamp,
-                            image2: _model.uploadedFileUrl2,
-                            image3: _model.uploadedFileUrl3,
-                          ));
-                          _model.service = ServicesRecord.getDocumentFromData(
-                              createServicesRecordData(
-                                name: _model.productNameTextController.text,
-                                description: _model.addressTextController1.text,
-                                price: double.tryParse(
-                                    _model.priceTextController.text),
-                                salePrice: double.tryParse(
-                                    _model.salesPriceTextController.text),
-                                image: _model.uploadedFileUrl1,
-                                createdby: currentUserReference,
-                                city: _model.addressTextController1.text,
-                                specifications:
-                                    _model.addressTextController2.text,
-                                createdAt: getCurrentTimestamp,
-                                image2: _model.uploadedFileUrl2,
-                                image3: _model.uploadedFileUrl3,
-                              ),
-                              servicesRecordReference);
-
-                          context.pushNamed('HomePrime');
-
-                          setState(() {});
+                        onPressed: () {
+                          print('Button pressed ...');
                         },
                         text: 'Add New Merchant',
                         options: FFButtonOptions(

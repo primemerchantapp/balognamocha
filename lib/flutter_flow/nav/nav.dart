@@ -90,29 +90,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : const HomePrimeWidget(),
         ),
         FFRoute(
-          name: 'History',
-          path: '/history',
-          builder: (context, params) => const HistoryWidget(),
+          name: 'authCreate',
+          path: '/authCreate',
+          builder: (context, params) => const AuthCreateWidget(),
         ),
         FFRoute(
-          name: 'auth_3_Create',
-          path: '/auth3Create',
-          builder: (context, params) => const Auth3CreateWidget(),
+          name: 'authLogin',
+          path: '/authLogin',
+          builder: (context, params) => const AuthLoginWidget(),
         ),
         FFRoute(
-          name: 'auth_3_Login',
-          path: '/auth3Login',
-          builder: (context, params) => const Auth3LoginWidget(),
-        ),
-        FFRoute(
-          name: 'auth_3_ForgotPassword',
-          path: '/auth3ForgotPassword',
-          builder: (context, params) => const Auth3ForgotPasswordWidget(),
-        ),
-        FFRoute(
-          name: 'Movies',
-          path: '/movies',
-          builder: (context, params) => const MoviesWidget(),
+          name: 'ForgotPassword',
+          path: '/forgotPassword',
+          builder: (context, params) => const ForgotPasswordWidget(),
         ),
         FFRoute(
           name: 'Profile',
@@ -122,39 +112,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : const ProfileWidget(),
         ),
         FFRoute(
-          name: 'EditProfile',
-          path: '/editProfile',
-          builder: (context, params) => const EditProfileWidget(),
-        ),
-        FFRoute(
-          name: 'MapView',
-          path: '/mapView',
+          name: 'allmerchantsMapView',
+          path: '/allmerchantsMapView',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'MapView')
-              : const MapViewWidget(),
-        ),
-        FFRoute(
-          name: 'Shop',
-          path: '/shop',
-          builder: (context, params) => const ShopWidget(),
-        ),
-        FFRoute(
-          name: 'MapViewDetails',
-          path: '/mapViewDetails',
-          asyncParams: {
-            'merchants': getDoc(['services'], ServicesRecord.fromSnapshot),
-          },
-          builder: (context, params) => MapViewDetailsWidget(
-            merchants: params.getParam(
-              'merchants',
-              ParamType.Document,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: 'Onboarding',
-          path: '/onboarding',
-          builder: (context, params) => const OnboardingWidget(),
+              ? const NavBarPage(initialPage: 'allmerchantsMapView')
+              : const AllmerchantsMapViewWidget(),
         ),
         FFRoute(
           name: 'CreateServices',
@@ -162,17 +124,34 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const CreateServicesWidget(),
         ),
         FFRoute(
-          name: 'CreateProduct',
-          path: '/createProduct',
-          builder: (context, params) => const CreateProductWidget(),
+          name: 'ProductList',
+          path: '/productList',
+          builder: (context, params) => const ProductListWidget(),
         ),
         FFRoute(
-          name: 'Shoping',
-          path: '/shoping',
-          builder: (context, params) => const ShopingWidget(),
+          name: 'Onboarding',
+          path: '/onboarding',
+          builder: (context, params) => const OnboardingWidget(),
+        ),
+        FFRoute(
+          name: 'Details',
+          path: '/details',
+          asyncParams: {
+            'detailsM': getDoc(['merchants'], MerchantsRecord.fromSnapshot),
+          },
+          builder: (context, params) => DetailsWidget(
+            detailsM: params.getParam(
+              'detailsM',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'QrCode',
+          path: '/qrCode',
+          builder: (context, params) => const QrCodeWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
-      observers: [routeObserver],
     );
 
 extension NavParamExtensions on Map<String, String?> {
@@ -355,19 +334,17 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? isWeb
-                  ? Container()
-                  : Container(
-                      color: FlutterFlowTheme.of(context).primaryBackground,
-                      child: Center(
-                        child: Image.asset(
-                          'assets/images/Untitled_design_(3).gif',
-                          width: 300.0,
-                          height: 300.0,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    )
+              ? Container(
+                  color: FlutterFlowTheme.of(context).primaryBackground,
+                  child: Center(
+                    child: Image.asset(
+                      'assets/images/Untitled_design_(3).gif',
+                      width: 300.0,
+                      height: 300.0,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                )
               : page;
 
           final transitionInfo = state.transitionInfo;

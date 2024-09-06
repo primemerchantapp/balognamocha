@@ -8,13 +8,6 @@ service cloud.firestore {
       allow delete: if request.auth.uid == document;
     }
 
-    match /services/{document} {
-      allow create: if true;
-      allow read: if true;
-      allow write: if false;
-      allow delete: if false;
-    }
-
     match /payments/{document} {
       allow create: if true;
       allow read: if true;
@@ -30,6 +23,13 @@ service cloud.firestore {
     }
 
     match /products/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /merchants/{document} {
       allow create: if true;
       allow read: if true;
       allow write: if false;

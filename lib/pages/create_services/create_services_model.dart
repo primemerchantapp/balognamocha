@@ -1,4 +1,3 @@
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'create_services_widget.dart' show CreateServicesWidget;
 import 'package:flutter/material.dart';
@@ -6,7 +5,6 @@ import 'package:flutter/material.dart';
 class CreateServicesModel extends FlutterFlowModel<CreateServicesWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   bool isDataUploading1 = false;
   FFUploadedFile uploadedLocalFile1 =
@@ -47,8 +45,6 @@ class CreateServicesModel extends FlutterFlowModel<CreateServicesWidget> {
   FocusNode? salesPriceFocusNode;
   TextEditingController? salesPriceTextController;
   String? Function(BuildContext, String?)? salesPriceTextControllerValidator;
-  // Stores action output result for [Backend Call - Create Document] action in Button widget.
-  ServicesRecord? service;
 
   @override
   void initState(BuildContext context) {}
