@@ -150,6 +150,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'QrCode',
           path: '/qrCode',
           builder: (context, params) => const QrCodeWidget(),
+        ),
+        FFRoute(
+          name: 'nfccard',
+          path: '/nfccard',
+          builder: (context, params) => const NfccardWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

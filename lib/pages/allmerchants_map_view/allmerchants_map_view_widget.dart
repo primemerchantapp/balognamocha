@@ -87,7 +87,8 @@ class _AllmerchantsMapViewWidgetState extends State<AllmerchantsMapViewWidget> {
                       .toList(),
                   markerColor: GoogleMarkerColor.violet,
                   markerImage: const MarkerImage(
-                    imagePath: 'assets/images/Untitled_design_(3).gif',
+                    imagePath:
+                        'assets/images/Untitled-design-3-1--unscreen.gif',
                     isAssetImage: true,
                     size: 20.0 ?? 20,
                   ),

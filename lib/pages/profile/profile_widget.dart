@@ -55,7 +55,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
               size: 34.0,
             ),
             onPressed: () async {
-              context.pop();
+              GoRouter.of(context).prepareAuthEvent();
+              await authManager.signOut();
+              GoRouter.of(context).clearRedirectLocation();
+
+              context.pushNamedAuth('Onboarding', context.mounted);
             },
           ),
           title: Text(

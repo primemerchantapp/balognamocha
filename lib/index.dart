@@ -13,3 +13,4 @@ export '/pages/product_list/product_list_widget.dart' show ProductListWidget;
 export '/pages/onboarding/onboarding_widget.dart' show OnboardingWidget;
 export '/pages/details/details_widget.dart' show DetailsWidget;
 export '/pages/qr_code/qr_code_widget.dart' show QrCodeWidget;
+export '/pages/nfccard/nfccard_widget.dart' show NfccardWidget;
