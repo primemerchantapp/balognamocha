@@ -95,19 +95,19 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
             borderWidth: 1.0,
             buttonSize: 64.0,
             icon: Icon(
-              Icons.arrow_back_ios_sharp,
+              Icons.location_history,
               color: FlutterFlowTheme.of(context).alternate,
               size: 34.0,
             ),
             onPressed: () async {
-              context.pop();
+              context.pushNamed('ProfileDetailsShare');
             },
           ),
           title: Text(
-            'Page Title',
+            'Prosperity Prime  Merchants',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: FlutterFlowTheme.of(context).headlineMediumFamily,
-                  color: FlutterFlowTheme.of(context).primaryText,
+                  color: FlutterFlowTheme.of(context).alternate,
                   fontSize: 18.0,
                   letterSpacing: 0.0,
                   useGoogleFonts: GoogleFonts.asMap().containsKey(
