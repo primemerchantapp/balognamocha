@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import '/backend/algolia/serialization_util.dart';
+import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -181,6 +183,75 @@ class UsersRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       UsersRecord._(reference, mapFromFirestore(data));
+
+  static UsersRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
+      UsersRecord.getDocumentFromData(
+        {
+          'email': snapshot.data['email'],
+          'display_name': snapshot.data['display_name'],
+          'photo_url': snapshot.data['photo_url'],
+          'uid': snapshot.data['uid'],
+          'created_time': convertAlgoliaParam(
+            snapshot.data['created_time'],
+            ParamType.DateTime,
+            false,
+          ),
+          'phone_number': snapshot.data['phone_number'],
+          'user_balance': convertAlgoliaParam(
+            snapshot.data['user_balance'],
+            ParamType.int,
+            false,
+          ),
+          'shortDescription': snapshot.data['shortDescription'],
+          'last_active_time': convertAlgoliaParam(
+            snapshot.data['last_active_time'],
+            ParamType.DateTime,
+            false,
+          ),
+          'role': snapshot.data['role'],
+          'title': snapshot.data['title'],
+          'qrCode': convertAlgoliaParam(
+            snapshot.data['qrCode'],
+            ParamType.int,
+            false,
+          ),
+          'gcash_number': snapshot.data['gcash_number'],
+          'gcash_name': snapshot.data['gcash_name'],
+          'account_number': snapshot.data['account_number'],
+          'affiliate_code': snapshot.data['affiliate_code'],
+          'sponsor': snapshot.data['sponsor'],
+          'address': snapshot.data['address'],
+          'team': snapshot.data['team'],
+          'mayaNumber': snapshot.data['mayaNumber'],
+          'located': convertAlgoliaParam(
+            snapshot.data,
+            ParamType.LatLng,
+            false,
+          ),
+          'qr_data_sharing': snapshot.data['qr_data_sharing'],
+          'fb': snapshot.data['fb'],
+          'whatsapp': snapshot.data['whatsapp'],
+        },
+        UsersRecord.collection.doc(snapshot.objectID),
+      );
+
+  static Future<List<UsersRecord>> search({
+    String? term,
+    FutureOr<LatLng>? location,
+    int? maxResults,
+    double? searchRadiusMeters,
+    bool useCache = false,
+  }) =>
+      FFAlgoliaManager.instance
+          .algoliaQuery(
+            index: 'users',
+            term: term,
+            maxResults: maxResults,
+            location: location,
+            searchRadiusMeters: searchRadiusMeters,
+            useCache: useCache,
+          )
+          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

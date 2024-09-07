@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import '/backend/algolia/serialization_util.dart';
+import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -146,6 +148,61 @@ class MerchantsRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       MerchantsRecord._(reference, mapFromFirestore(data));
+
+  static MerchantsRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
+      MerchantsRecord.getDocumentFromData(
+        {
+          'company_name': snapshot.data['company_name'],
+          'describe': snapshot.data['describe'],
+          'city': snapshot.data['city'],
+          'address_without': snapshot.data['address_without'],
+          'address_with': convertAlgoliaParam(
+            snapshot.data,
+            ParamType.LatLng,
+            false,
+          ),
+          'category': snapshot.data['category'],
+          'contact_info': snapshot.data['contact_info'],
+          'rating': convertAlgoliaParam(
+            snapshot.data['rating'],
+            ParamType.int,
+            false,
+          ),
+          'created_at': convertAlgoliaParam(
+            snapshot.data['created_at'],
+            ParamType.DateTime,
+            false,
+          ),
+          'image1': snapshot.data['image1'],
+          'image2': snapshot.data['image2'],
+          'image3': snapshot.data['image3'],
+          'video_url': snapshot.data['video_url'],
+          'marker_icon_url': snapshot.data['marker_icon_url'],
+          'open_hours': snapshot.data['open_hours'],
+          'status': snapshot.data['status'],
+          'website': snapshot.data['website'],
+          'banner': snapshot.data['banner'],
+        },
+        MerchantsRecord.collection.doc(snapshot.objectID),
+      );
+
+  static Future<List<MerchantsRecord>> search({
+    String? term,
+    FutureOr<LatLng>? location,
+    int? maxResults,
+    double? searchRadiusMeters,
+    bool useCache = false,
+  }) =>
+      FFAlgoliaManager.instance
+          .algoliaQuery(
+            index: 'merchants',
+            term: term,
+            maxResults: maxResults,
+            location: location,
+            searchRadiusMeters: searchRadiusMeters,
+            useCache: useCache,
+          )
+          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

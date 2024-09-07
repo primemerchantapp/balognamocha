@@ -236,7 +236,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                                         child: Icon(
                                           Icons.qr_code_scanner,
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryText,
+                                              .alternate,
                                           size: 44.0,
                                         ),
                                       ),
@@ -456,12 +456,6 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                             ),
                         ],
                         markerColor: GoogleMarkerColor.orange,
-                        markerImage: const MarkerImage(
-                          imagePath:
-                              'assets/images/Untitled-design-3-1--unscreen.gif',
-                          isAssetImage: true,
-                          size: 20.0 ?? 20,
-                        ),
                         mapType: MapType.normal,
                         style: GoogleMapStyle.retro,
                         initialZoom: 14.0,

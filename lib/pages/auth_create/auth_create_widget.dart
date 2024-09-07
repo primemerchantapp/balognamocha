@@ -840,26 +840,6 @@ class _AuthCreateWidgetState extends State<AuthCreateWidget>
                                                     userBalance: 100,
                                                   ));
 
-                                              ScaffoldMessenger.of(context)
-                                                  .showSnackBar(
-                                                SnackBar(
-                                                  content: Text(
-                                                    'You got 100.00 Pesos Bonus!',
-                                                    style: TextStyle(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryText,
-                                                    ),
-                                                  ),
-                                                  duration: const Duration(
-                                                      milliseconds: 4000),
-                                                  backgroundColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondary,
-                                                ),
-                                              );
                                               await Future.delayed(
                                                   const Duration(
                                                       milliseconds: 3000));

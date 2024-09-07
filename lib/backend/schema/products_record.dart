@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import '/backend/algolia/serialization_util.dart';
+import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -98,6 +100,61 @@ class ProductsRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       ProductsRecord._(reference, mapFromFirestore(data));
+
+  static ProductsRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
+      ProductsRecord.getDocumentFromData(
+        {
+          'name': snapshot.data['name'],
+          'description': snapshot.data['description'],
+          'specifications': snapshot.data['specifications'],
+          'price': convertAlgoliaParam(
+            snapshot.data['price'],
+            ParamType.double,
+            false,
+          ),
+          'created_at': convertAlgoliaParam(
+            snapshot.data['created_at'],
+            ParamType.DateTime,
+            false,
+          ),
+          'modified_at': convertAlgoliaParam(
+            snapshot.data['modified_at'],
+            ParamType.DateTime,
+            false,
+          ),
+          'on_sale': snapshot.data['on_sale'],
+          'sale_price': convertAlgoliaParam(
+            snapshot.data['sale_price'],
+            ParamType.double,
+            false,
+          ),
+          'quantity': convertAlgoliaParam(
+            snapshot.data['quantity'],
+            ParamType.int,
+            false,
+          ),
+          'image': snapshot.data['image'],
+        },
+        ProductsRecord.collection.doc(snapshot.objectID),
+      );
+
+  static Future<List<ProductsRecord>> search({
+    String? term,
+    FutureOr<LatLng>? location,
+    int? maxResults,
+    double? searchRadiusMeters,
+    bool useCache = false,
+  }) =>
+      FFAlgoliaManager.instance
+          .algoliaQuery(
+            index: 'products',
+            term: term,
+            maxResults: maxResults,
+            location: location,
+            searchRadiusMeters: searchRadiusMeters,
+            useCache: useCache,
+          )
+          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>

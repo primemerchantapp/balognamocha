@@ -119,9 +119,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : const AllmerchantsMapViewWidget(),
         ),
         FFRoute(
-          name: 'CreateServices',
-          path: '/createServices',
-          builder: (context, params) => const CreateServicesWidget(),
+          name: 'CreateMerchant',
+          path: '/createMerchant',
+          builder: (context, params) => const CreateMerchantWidget(),
         ),
         FFRoute(
           name: 'ProductList',
@@ -160,11 +160,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ProfileDetailsShare',
           path: '/profileDetailsShare',
           builder: (context, params) => const ProfileDetailsShareWidget(),
-        ),
-        FFRoute(
-          name: 'Profile16CreateEdit',
-          path: '/profile16CreateEdit',
-          builder: (context, params) => const Profile16CreateEditWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -350,7 +345,7 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: FlutterFlowTheme.of(context).primaryBackground,
+                  color: FlutterFlowTheme.of(context).alternate,
                   child: Center(
                     child: Image.asset(
                       'assets/images/Untitled_design_(3).gif',

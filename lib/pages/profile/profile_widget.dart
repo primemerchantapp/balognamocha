@@ -354,7 +354,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        context.pushNamed('CreateServices');
+                        context.pushNamed('CreateMerchant');
                       },
                       child: Container(
                         width: double.infinity,

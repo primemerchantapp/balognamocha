@@ -81,8 +81,7 @@ class _NfccardWidgetState extends State<NfccardWidget> {
                             },
                             child: Icon(
                               Icons.close_sharp,
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
+                              color: FlutterFlowTheme.of(context).primary,
                               size: 24.0,
                             ),
                           ),

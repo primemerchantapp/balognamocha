@@ -41,6 +41,20 @@ class _AllmerchantsMapViewWidgetState extends State<AllmerchantsMapViewWidget> {
         key: scaffoldKey,
         resizeToAvoidBottomInset: false,
         backgroundColor: const Color(0xFF201C1C),
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).primary,
+          automaticallyImplyLeading: false,
+          title: Container(
+            decoration: const BoxDecoration(),
+            child: const Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [],
+            ),
+          ),
+          actions: const [],
+          centerTitle: false,
+          elevation: 8.0,
+        ),
         body: Container(
           width: MediaQuery.sizeOf(context).width * 1.0,
           height: MediaQuery.sizeOf(context).height * 1.0,
@@ -85,15 +99,9 @@ class _AllmerchantsMapViewWidgetState extends State<AllmerchantsMapViewWidget> {
                         ),
                       )
                       .toList(),
-                  markerColor: GoogleMarkerColor.violet,
-                  markerImage: const MarkerImage(
-                    imagePath:
-                        'assets/images/Untitled-design-3-1--unscreen.gif',
-                    isAssetImage: true,
-                    size: 20.0 ?? 20,
-                  ),
+                  markerColor: GoogleMarkerColor.orange,
                   mapType: MapType.normal,
-                  style: GoogleMapStyle.retro,
+                  style: GoogleMapStyle.aubergine,
                   initialZoom: 14.0,
                   allowInteraction: true,
                   allowZoom: true,

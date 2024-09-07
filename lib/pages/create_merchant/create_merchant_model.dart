@@ -1,8 +1,9 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'create_services_widget.dart' show CreateServicesWidget;
+import 'create_merchant_widget.dart' show CreateMerchantWidget;
 import 'package:flutter/material.dart';
 
-class CreateServicesModel extends FlutterFlowModel<CreateServicesWidget> {
+class CreateMerchantModel extends FlutterFlowModel<CreateMerchantWidget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -25,6 +26,10 @@ class CreateServicesModel extends FlutterFlowModel<CreateServicesWidget> {
   FocusNode? productNameFocusNode;
   TextEditingController? productNameTextController;
   String? Function(BuildContext, String?)? productNameTextControllerValidator;
+  // State field(s) for productcat widget.
+  FocusNode? productcatFocusNode;
+  TextEditingController? productcatTextController;
+  String? Function(BuildContext, String?)? productcatTextControllerValidator;
   // State field(s) for address widget.
   FocusNode? addressFocusNode1;
   TextEditingController? addressTextController1;
@@ -45,6 +50,8 @@ class CreateServicesModel extends FlutterFlowModel<CreateServicesWidget> {
   FocusNode? salesPriceFocusNode;
   TextEditingController? salesPriceTextController;
   String? Function(BuildContext, String?)? salesPriceTextControllerValidator;
+  // Stores action output result for [Backend Call - Create Document] action in Button widget.
+  MerchantsRecord? merchNew;
 
   @override
   void initState(BuildContext context) {}
@@ -53,6 +60,9 @@ class CreateServicesModel extends FlutterFlowModel<CreateServicesWidget> {
   void dispose() {
     productNameFocusNode?.dispose();
     productNameTextController?.dispose();
+
+    productcatFocusNode?.dispose();
+    productcatTextController?.dispose();
 
     addressFocusNode1?.dispose();
     addressTextController1?.dispose();

@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -6,28 +7,32 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'create_services_model.dart';
-export 'create_services_model.dart';
+import 'create_merchant_model.dart';
+export 'create_merchant_model.dart';
 
-class CreateServicesWidget extends StatefulWidget {
-  const CreateServicesWidget({super.key});
+class CreateMerchantWidget extends StatefulWidget {
+  const CreateMerchantWidget({super.key});
 
   @override
-  State<CreateServicesWidget> createState() => _CreateServicesWidgetState();
+  State<CreateMerchantWidget> createState() => _CreateMerchantWidgetState();
 }
 
-class _CreateServicesWidgetState extends State<CreateServicesWidget> {
-  late CreateServicesModel _model;
+class _CreateMerchantWidgetState extends State<CreateMerchantWidget> {
+  late CreateMerchantModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CreateServicesModel());
+    _model = createModel(context, () => CreateMerchantModel());
 
     _model.productNameTextController ??= TextEditingController();
     _model.productNameFocusNode ??= FocusNode();
+
+    _model.productcatTextController ??= TextEditingController();
+    _model.productcatFocusNode ??= FocusNode();
 
     _model.addressTextController1 ??= TextEditingController();
     _model.addressFocusNode1 ??= FocusNode();
@@ -629,6 +634,141 @@ class _CreateServicesWidgetState extends State<CreateServicesWidget> {
                                                   .primary,
                                           validator: _model
                                               .productNameTextControllerValidator
+                                              .asValidator(context),
+                                        ),
+                                        TextFormField(
+                                          controller:
+                                              _model.productcatTextController,
+                                          focusNode: _model.productcatFocusNode,
+                                          autofocus: true,
+                                          textCapitalization:
+                                              TextCapitalization.words,
+                                          obscureText: false,
+                                          decoration: InputDecoration(
+                                            labelText: 'Merchant Category...',
+                                            labelStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineMedium
+                                                    .override(
+                                                      fontFamily: FlutterFlowTheme
+                                                              .of(context)
+                                                          .headlineMediumFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                      letterSpacing: 0.0,
+                                                      useGoogleFonts: GoogleFonts
+                                                              .asMap()
+                                                          .containsKey(
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineMediumFamily),
+                                                    ),
+                                            hintStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMediumFamily,
+                                                      letterSpacing: 0.0,
+                                                      useGoogleFonts: GoogleFonts
+                                                              .asMap()
+                                                          .containsKey(
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMediumFamily),
+                                                    ),
+                                            errorStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .error,
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      useGoogleFonts: GoogleFonts
+                                                              .asMap()
+                                                          .containsKey(
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily),
+                                                    ),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                            ),
+                                            errorBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                            ),
+                                            focusedErrorBorder:
+                                                OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                            ),
+                                            filled: true,
+                                            fillColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                            contentPadding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 20.0, 16.0, 20.0),
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .headlineMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineMediumFamily,
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(FlutterFlowTheme
+                                                            .of(context)
+                                                        .headlineMediumFamily),
+                                              ),
+                                          cursorColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                          validator: _model
+                                              .productcatTextControllerValidator
                                               .asValidator(context),
                                         ),
                                         TextFormField(
@@ -1494,13 +1634,48 @@ class _CreateServicesWidgetState extends State<CreateServicesWidget> {
                       padding: const EdgeInsetsDirectional.fromSTEB(
                           16.0, 12.0, 16.0, 12.0),
                       child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          currentUserLocationValue =
+                              await getCurrentUserLocation(
+                                  defaultLocation: const LatLng(0.0, 0.0));
+
+                          var merchantsRecordReference =
+                              MerchantsRecord.collection.doc();
+                          await merchantsRecordReference
+                              .set(createMerchantsRecordData(
+                            companyName: _model.productNameTextController.text,
+                            city: _model.addressTextController1.text,
+                            addressWith: currentUserLocationValue,
+                            category: _model.productcatTextController.text,
+                            createdAt: getCurrentTimestamp,
+                            image1: _model.uploadedFileUrl1,
+                            image2: _model.uploadedFileUrl2,
+                            image3: _model.uploadedFileUrl3,
+                          ));
+                          _model.merchNew = MerchantsRecord.getDocumentFromData(
+                              createMerchantsRecordData(
+                                companyName:
+                                    _model.productNameTextController.text,
+                                city: _model.addressTextController1.text,
+                                addressWith: currentUserLocationValue,
+                                category: _model.productcatTextController.text,
+                                createdAt: getCurrentTimestamp,
+                                image1: _model.uploadedFileUrl1,
+                                image2: _model.uploadedFileUrl2,
+                                image3: _model.uploadedFileUrl3,
+                              ),
+                              merchantsRecordReference);
+                          await Future.delayed(
+                              const Duration(milliseconds: 3000));
+
+                          context.pushNamed('HomePrime');
+
+                          safeSetState(() {});
                         },
                         text: 'Add New Merchant',
                         options: FFButtonOptions(
                           width: double.infinity,
-                          height: 57.0,
+                          height: 68.0,
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
                           iconPadding: const EdgeInsetsDirectional.fromSTEB(

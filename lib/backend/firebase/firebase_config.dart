@@ -10,7 +10,8 @@ Future initFirebase() async {
             projectId: "tudds-ccd0wn",
             storageBucket: "tudds-ccd0wn.appspot.com",
             messagingSenderId: "786974954352",
-            appId: "1:786974954352:web:2971bceb02fb8e6b9bb5b5"));
+            appId: "1:786974954352:web:2971bceb02fb8e6b9bb5b5",
+            measurementId: "G-V433R51W9J"));
   } else {
     await Firebase.initializeApp();
   }
