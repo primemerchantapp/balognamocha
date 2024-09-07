@@ -225,11 +225,20 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                                             BorderRadius.circular(10.0),
                                       ),
                                       alignment: const AlignmentDirectional(0.0, 0.0),
-                                      child: Icon(
-                                        Icons.qr_code_scanner,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        size: 44.0,
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed('QrCode');
+                                        },
+                                        child: Icon(
+                                          Icons.qr_code_scanner,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          size: 44.0,
+                                        ),
                                       ),
                                     ),
                                   ),

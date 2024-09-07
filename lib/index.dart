@@ -14,3 +14,7 @@ export '/pages/onboarding/onboarding_widget.dart' show OnboardingWidget;
 export '/pages/details/details_widget.dart' show DetailsWidget;
 export '/pages/qr_code/qr_code_widget.dart' show QrCodeWidget;
 export '/pages/nfccard/nfccard_widget.dart' show NfccardWidget;
+export '/profile_details_share/profile_details_share_widget.dart'
+    show ProfileDetailsShareWidget;
+export '/profile16_create_edit/profile16_create_edit_widget.dart'
+    show Profile16CreateEditWidget;

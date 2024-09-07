@@ -155,6 +155,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'nfccard',
           path: '/nfccard',
           builder: (context, params) => const NfccardWidget(),
+        ),
+        FFRoute(
+          name: 'ProfileDetailsShare',
+          path: '/profileDetailsShare',
+          builder: (context, params) => const ProfileDetailsShareWidget(),
+        ),
+        FFRoute(
+          name: 'Profile16CreateEdit',
+          path: '/profile16CreateEdit',
+          builder: (context, params) => const Profile16CreateEditWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
