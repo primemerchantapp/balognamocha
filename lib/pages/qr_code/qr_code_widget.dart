@@ -180,22 +180,22 @@ class _QrCodeWidgetState extends State<QrCodeWidget> {
                               elevation: 8.0,
                               shape: const RoundedRectangleBorder(
                                 borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(24.0),
-                                  bottomRight: Radius.circular(24.0),
-                                  topLeft: Radius.circular(24.0),
-                                  topRight: Radius.circular(24.0),
+                                  bottomLeft: Radius.circular(8.0),
+                                  bottomRight: Radius.circular(8.0),
+                                  topLeft: Radius.circular(8.0),
+                                  topRight: Radius.circular(8.0),
                                 ),
                               ),
                               child: Container(
-                                width: 322.0,
-                                height: 347.0,
+                                width: 290.0,
+                                height: 290.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context).primary,
                                   borderRadius: const BorderRadius.only(
-                                    bottomLeft: Radius.circular(24.0),
-                                    bottomRight: Radius.circular(24.0),
-                                    topLeft: Radius.circular(24.0),
-                                    topRight: Radius.circular(24.0),
+                                    bottomLeft: Radius.circular(8.0),
+                                    bottomRight: Radius.circular(8.0),
+                                    topLeft: Radius.circular(8.0),
+                                    topRight: Radius.circular(8.0),
                                   ),
                                   border: Border.all(
                                     color: FlutterFlowTheme.of(context).primary,

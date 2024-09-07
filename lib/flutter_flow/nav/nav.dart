@@ -124,27 +124,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const CreateMerchantWidget(),
         ),
         FFRoute(
-          name: 'ProductList',
-          path: '/productList',
-          builder: (context, params) => const ProductListWidget(),
-        ),
-        FFRoute(
           name: 'Onboarding',
           path: '/onboarding',
           builder: (context, params) => const OnboardingWidget(),
-        ),
-        FFRoute(
-          name: 'Details',
-          path: '/details',
-          asyncParams: {
-            'detailsM': getDoc(['merchants'], MerchantsRecord.fromSnapshot),
-          },
-          builder: (context, params) => DetailsWidget(
-            detailsM: params.getParam(
-              'detailsM',
-              ParamType.Document,
-            ),
-          ),
         ),
         FFRoute(
           name: 'QrCode',
@@ -160,6 +142,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ProfileDetailsShare',
           path: '/profileDetailsShare',
           builder: (context, params) => const ProfileDetailsShareWidget(),
+        ),
+        FFRoute(
+          name: 'MerchantDetails',
+          path: '/merchantDetails',
+          asyncParams: {
+            'merch1': getDoc(['merchants'], MerchantsRecord.fromSnapshot),
+          },
+          builder: (context, params) => MerchantDetailsWidget(
+            merch1: params.getParam(
+              'merch1',
+              ParamType.Document,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -345,7 +340,7 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: FlutterFlowTheme.of(context).alternate,
+                  color: FlutterFlowTheme.of(context).primaryBackground,
                   child: Center(
                     child: Image.asset(
                       'assets/images/Untitled_design_(3).gif',

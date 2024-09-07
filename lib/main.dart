@@ -58,7 +58,7 @@ class _MyAppState extends State<MyApp> {
       });
     jwtTokenStream.listen((_) {});
     Future.delayed(
-      const Duration(milliseconds: 4000),
+      const Duration(milliseconds: 400),
       () => _appStateNotifier.stopShowingSplashImage(),
     );
   }
@@ -145,8 +145,8 @@ class _NavBarPageState extends State<NavBarPage> {
           _currentPageName = tabs.keys.toList()[i];
         }),
         backgroundColor: FlutterFlowTheme.of(context).primary,
-        selectedItemColor: FlutterFlowTheme.of(context).primaryBackground,
-        unselectedItemColor: const Color(0x69666666),
+        selectedItemColor: const Color(0xFF020000),
+        unselectedItemColor: const Color(0xB5333333),
         showSelectedLabels: false,
         showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,

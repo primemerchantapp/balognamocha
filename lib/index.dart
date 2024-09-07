@@ -9,10 +9,10 @@ export '/pages/allmerchants_map_view/allmerchants_map_view_widget.dart'
     show AllmerchantsMapViewWidget;
 export '/pages/create_merchant/create_merchant_widget.dart'
     show CreateMerchantWidget;
-export '/pages/product_list/product_list_widget.dart' show ProductListWidget;
 export '/pages/onboarding/onboarding_widget.dart' show OnboardingWidget;
-export '/pages/details/details_widget.dart' show DetailsWidget;
 export '/pages/qr_code/qr_code_widget.dart' show QrCodeWidget;
 export '/pages/nfccard/nfccard_widget.dart' show NfccardWidget;
-export '/profile_details_share/profile_details_share_widget.dart'
+export '/pages/profile_details_share/profile_details_share_widget.dart'
     show ProfileDetailsShareWidget;
+export '/pages/merchant_details/merchant_details_widget.dart'
+    show MerchantDetailsWidget;

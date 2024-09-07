@@ -40,7 +40,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryText,
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
@@ -66,9 +66,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
             'Profile Information',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: FlutterFlowTheme.of(context).headlineMediumFamily,
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  color: FlutterFlowTheme.of(context).primaryBackground,
                   fontSize: 18.0,
                   letterSpacing: 0.0,
+                  fontWeight: FontWeight.w600,
                   useGoogleFonts: GoogleFonts.asMap().containsKey(
                       FlutterFlowTheme.of(context).headlineMediumFamily),
                 ),
@@ -300,6 +301,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         ],
                         borderRadius: BorderRadius.circular(12.0),
                         shape: BoxShape.rectangle,
+                        border: Border.all(
+                          color: const Color(0x92333333),
+                        ),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -374,6 +378,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           ],
                           borderRadius: BorderRadius.circular(12.0),
                           shape: BoxShape.rectangle,
+                          border: Border.all(
+                            color: const Color(0xA1333333),
+                          ),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
