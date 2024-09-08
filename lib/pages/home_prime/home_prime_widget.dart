@@ -117,7 +117,7 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
               size: 30.0,
             ),
             onPressed: () async {
-              context.pushNamed('Profile12');
+              context.pushNamed('ProfileMain');
             },
           ),
           title: Row(

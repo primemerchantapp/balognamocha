@@ -141,7 +141,6 @@ class _NavBarPageState extends State<NavBarPage> {
       'ProductList': const ProductListWidget(),
       'HomePrime': const HomePrimeWidget(),
       'QrCode': const QrCodeWidget(),
-      'Profile12': const Profile12Widget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -190,14 +189,6 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24.0,
             ),
             label: 'Home',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.userTie,
-              size: 24.0,
-            ),
-            label: 'Settings',
             tooltip: '',
           )
         ],

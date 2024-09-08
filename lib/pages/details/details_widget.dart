@@ -48,7 +48,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
       child: Scaffold(
         key: scaffoldKey,
         resizeToAvoidBottomInset: false,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).primary,
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
@@ -59,21 +59,21 @@ class _DetailsWidgetState extends State<DetailsWidget> {
             buttonSize: 60.0,
             icon: Icon(
               Icons.arrow_back_ios_sharp,
-              color: FlutterFlowTheme.of(context).primaryBackground,
+              color: FlutterFlowTheme.of(context).alternate,
               size: 30.0,
             ),
             onPressed: () async {
-              context.pop();
+              context.safePop();
             },
           ),
           title: Text(
             valueOrDefault<String>(
               widget.merch1?.companyName,
               'name',
-            ),
+            ).maybeHandleOverflow(maxChars: 22),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: FlutterFlowTheme.of(context).headlineMediumFamily,
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  color: FlutterFlowTheme.of(context).alternate,
                   fontSize: 18.0,
                   letterSpacing: 0.0,
                   useGoogleFonts: GoogleFonts.asMap().containsKey(

@@ -14,9 +14,6 @@ export '/pages/nfc_card/nfc_card_widget.dart' show NfcCardWidget;
 export '/pages/details/details_widget.dart' show DetailsWidget;
 export '/pages/profile_update/profile_update_widget.dart'
     show ProfileUpdateWidget;
-export '/pages/profile12/profile12_widget.dart' show Profile12Widget;
 export '/pages/product_list/product_list_widget.dart' show ProductListWidget;
 export '/pages/category_home/category_home_widget.dart' show CategoryHomeWidget;
-export '/pages/profile12_edit/profile12_edit_widget.dart'
-    show Profile12EditWidget;
 export '/pages/profile_main/profile_main_widget.dart' show ProfileMainWidget;

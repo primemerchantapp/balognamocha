@@ -152,13 +152,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const ProfileUpdateWidget(),
         ),
         FFRoute(
-          name: 'Profile12',
-          path: '/profile12',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Profile12')
-              : const Profile12Widget(),
-        ),
-        FFRoute(
           name: 'ProductList',
           path: '/productList',
           builder: (context, params) => params.isEmpty
@@ -169,11 +162,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'categoryHome',
           path: '/categoryHome',
           builder: (context, params) => const CategoryHomeWidget(),
-        ),
-        FFRoute(
-          name: 'Profile12Edit',
-          path: '/profile12Edit',
-          builder: (context, params) => const Profile12EditWidget(),
         ),
         FFRoute(
           name: 'ProfileMain',
