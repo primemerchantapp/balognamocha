@@ -53,7 +53,7 @@ class _LogoWidgetState extends State<LogoWidget> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Align(
-              alignment: const AlignmentDirectional(-1.0, 0.0),
+              alignment: const AlignmentDirectional(0.0, 0.0),
               child: Container(
                 width: MediaQuery.sizeOf(context).width * 1.0,
                 height: 104.0,
@@ -64,10 +64,10 @@ class _LogoWidgetState extends State<LogoWidget> {
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
                       Theme.of(context).brightness == Brightness.dark
-                          ? 'assets/images/Untitled_design__8_-removebg-preview.png'
-                          : 'assets/images/Untitled_design__8_-removebg-preview.png',
-                      width: 322.0,
-                      height: 125.0,
+                          ? 'assets/images/Untitled_design_(29).png'
+                          : 'assets/images/49svh_2.png',
+                      width: 126.0,
+                      height: 200.0,
                       fit: BoxFit.contain,
                     ),
                   ),

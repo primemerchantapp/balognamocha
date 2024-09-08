@@ -67,6 +67,19 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
           ),
         ],
       ),
+      'containerOnActionTriggerAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 300.0.ms,
+            begin: const Offset(-40.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
     });
     setupAnimations(
       animationsMap.values.where((anim) =>
@@ -90,103 +103,176 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primary,
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(100.0),
-          child: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).primary,
-            automaticallyImplyLeading: false,
-            actions: const [],
-            flexibleSpace: FlexibleSpaceBar(
-              title: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
-                            child: FlutterFlowIconButton(
-                              borderColor: Colors.transparent,
-                              borderRadius: 30.0,
-                              borderWidth: 1.0,
-                              buttonSize: 50.0,
-                              icon: Icon(
-                                Icons.location_history,
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                size: 30.0,
-                              ),
-                              onPressed: () async {
-                                context.pop();
-                              },
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                4.0, 0.0, 0.0, 0.0),
-                            child: AuthUserStreamWidget(
-                              builder: (context) => Text(
-                                'Hi, ${valueOrDefault<String>(
-                                  currentUserDisplayName,
-                                  'Guest User',
-                                )}! Welcome',
-                                style: FlutterFlowTheme.of(context)
-                                    .headlineMedium
-                                    .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .headlineMediumFamily,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      fontSize: 16.0,
-                                      letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .headlineMediumFamily),
-                                    ),
-                              ),
-                            ),
-                          ),
-                        ],
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).primary,
+          automaticallyImplyLeading: false,
+          leading: FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
+            icon: Icon(
+              Icons.arrow_back_ios_sharp,
+              color: FlutterFlowTheme.of(context).primaryBackground,
+              size: 30.0,
+            ),
+            onPressed: () async {
+              context.pop();
+            },
+          ),
+          title: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              AuthUserStreamWidget(
+                builder: (context) => Text(
+                  'Welcome, ${valueOrDefault<String>(
+                    currentUserDisplayName,
+                    'Prime Guest',
+                  )}',
+                  style: FlutterFlowTheme.of(context).headlineMedium.override(
+                        fontFamily:
+                            FlutterFlowTheme.of(context).headlineMediumFamily,
+                        color: FlutterFlowTheme.of(context).alternate,
+                        fontSize: 18.0,
+                        letterSpacing: 0.0,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).headlineMediumFamily),
                       ),
-                    ),
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
-                      child: Text(
-                        'Prosperity Prime Merchant',
-                        style: FlutterFlowTheme.of(context)
-                            .headlineMedium
-                            .override(
-                              fontFamily: FlutterFlowTheme.of(context)
-                                  .headlineMediumFamily,
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              fontSize: 22.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w500,
-                              useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context)
-                                      .headlineMediumFamily),
-                            ),
-                      ),
-                    ),
-                  ],
                 ),
               ),
-              centerTitle: true,
-              expandedTitleScale: 1.0,
-            ),
-            elevation: 0.0,
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    if ((Theme.of(context).brightness == Brightness.light) ==
+                        true) {
+                      setDarkModeSetting(context, ThemeMode.dark);
+                      if (animationsMap['containerOnActionTriggerAnimation'] !=
+                          null) {
+                        animationsMap['containerOnActionTriggerAnimation']!
+                            .controller
+                            .forward(from: 0.0);
+                      }
+                    } else {
+                      setDarkModeSetting(context, ThemeMode.light);
+                      if (animationsMap['containerOnActionTriggerAnimation'] !=
+                          null) {
+                        animationsMap['containerOnActionTriggerAnimation']!
+                            .controller
+                            .reverse();
+                      }
+                    }
+                  },
+                  child: Container(
+                    width: 80.0,
+                    height: 30.0,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      borderRadius: BorderRadius.circular(20.0),
+                      border: Border.all(
+                        color: const Color(0xFFE0E3E7),
+                        width: 1.0,
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(2.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          setDarkModeSetting(context, ThemeMode.dark);
+                        },
+                        child: Stack(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          children: [
+                            Align(
+                              alignment: const AlignmentDirectional(-0.9, 0.0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    6.0, 0.0, 0.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    setDarkModeSetting(
+                                        context, ThemeMode.light);
+                                  },
+                                  child: const Icon(
+                                    Icons.wb_sunny_rounded,
+                                    color: Color(0xFF57636C),
+                                    size: 18.0,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const Align(
+                              alignment: AlignmentDirectional(1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 6.0, 0.0),
+                                child: Icon(
+                                  Icons.mode_night_rounded,
+                                  color: Color(0xFF57636C),
+                                  size: 24.0,
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: const AlignmentDirectional(1.0, 0.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  setDarkModeSetting(context, ThemeMode.light);
+                                },
+                                child: Container(
+                                  width: 36.0,
+                                  height: 36.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    boxShadow: const [
+                                      BoxShadow(
+                                        blurRadius: 4.0,
+                                        color: Color(0x430B0D0F),
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(30.0),
+                                    shape: BoxShape.rectangle,
+                                  ),
+                                ),
+                              ).animateOnActionTrigger(
+                                animationsMap[
+                                    'containerOnActionTriggerAnimation']!,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
+          actions: const [],
+          centerTitle: true,
+          elevation: 0.0,
         ),
         body: SafeArea(
           top: true,
@@ -228,7 +314,7 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  context.pushNamed('List08ProductList');
+                                  context.pushNamed('ProductList');
                                 },
                                 child: Material(
                                   color: Colors.transparent,
@@ -249,61 +335,49 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                         width: 1.0,
                                       ),
                                     ),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.pushNamed('Profile12');
-                                      },
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.shopping_cart_sharp,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            size: 30.0,
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.shopping_cart_sharp,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          size: 30.0,
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 0.0),
+                                          child: GradientText(
+                                            'Shop',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  fontSize: 12.0,
+                                                  letterSpacing: 0.0,
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumFamily),
+                                                ),
+                                            colors: const [],
+                                            gradientDirection:
+                                                GradientDirection.ltr,
+                                            gradientType: GradientType.linear,
                                           ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 8.0, 0.0, 0.0),
-                                            child: GradientText(
-                                              'Shop',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMediumFamily,
-                                                        fontSize: 12.0,
-                                                        letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
-                                                      ),
-                                              colors: [
-                                                FlutterFlowTheme.of(context)
-                                                    .primary,
-                                                FlutterFlowTheme.of(context)
-                                                    .secondary
-                                              ],
-                                              gradientDirection:
-                                                  GradientDirection.ltr,
-                                              gradientType: GradientType.linear,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
@@ -318,7 +392,7 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  context.pushNamed('Home21');
+                                  context.pushNamed('categoryHome');
                                 },
                                 child: Material(
                                   color: Colors.transparent,
@@ -372,12 +446,7 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                                                   context)
                                                               .bodyMediumFamily),
                                                 ),
-                                            colors: [
-                                              FlutterFlowTheme.of(context)
-                                                  .primary,
-                                              FlutterFlowTheme.of(context)
-                                                  .secondary
-                                            ],
+                                            colors: const [],
                                             gradientDirection:
                                                 GradientDirection.ltr,
                                             gradientType: GradientType.linear,
@@ -452,12 +521,7 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                                                   context)
                                                               .bodyMediumFamily),
                                                 ),
-                                            colors: [
-                                              FlutterFlowTheme.of(context)
-                                                  .primary,
-                                              FlutterFlowTheme.of(context)
-                                                  .secondary
-                                            ],
+                                            colors: const [],
                                             gradientDirection:
                                                 GradientDirection.ltr,
                                             gradientType: GradientType.linear,
@@ -478,7 +542,7 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  context.pushNamed('nfccard');
+                                  context.pushNamed('nfcCard');
                                 },
                                 child: Material(
                                   color: Colors.transparent,
@@ -532,12 +596,7 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                                                   context)
                                                               .bodyMediumFamily),
                                                 ),
-                                            colors: [
-                                              FlutterFlowTheme.of(context)
-                                                  .primary,
-                                              FlutterFlowTheme.of(context)
-                                                  .secondary
-                                            ],
+                                            colors: const [],
                                             gradientDirection:
                                                 GradientDirection.ltr,
                                             gradientType: GradientType.linear,
@@ -568,7 +627,7 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                               decoration: const BoxDecoration(),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 4.0, 16.0, 0.0),
+                                    16.0, 4.0, 0.0, 0.0),
                                 child: StreamBuilder<List<MerchantsRecord>>(
                                   stream: queryMerchantsRecord(),
                                   builder: (context, snapshot) {
@@ -612,7 +671,7 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                                   Colors.transparent,
                                               onTap: () async {
                                                 context.pushNamed(
-                                                  'MerchantDetails',
+                                                  'Details',
                                                   queryParameters: {
                                                     'merch1': serializeParam(
                                                       listViewMerchantsRecord,
@@ -726,7 +785,7 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         context.pushNamed(
-                                          'MerchantDetails',
+                                          'Details',
                                           queryParameters: {
                                             'merch1': serializeParam(
                                               listViewMerchantsRecord,
@@ -885,7 +944,7 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                                                           0.0),
                                                               child: Icon(
                                                                 Icons
-                                                                    .account_circle_rounded,
+                                                                    .access_time_filled,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
@@ -901,7 +960,7 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                                                           0.0,
                                                                           0.0),
                                                               child: Text(
-                                                                'By Ellen Fraud',
+                                                                'Open at ${listViewMerchantsRecord.openHours}',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .labelMedium
@@ -959,7 +1018,8 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                                                           0.0,
                                                                           0.0),
                                                               child: Text(
-                                                                'BGC, Pasig City',
+                                                                listViewMerchantsRecord
+                                                                    .city,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .labelMedium

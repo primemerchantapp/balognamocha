@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'home_prime_copy_widget.dart' show HomePrimeCopyWidget;
+import 'nfc_card_widget.dart' show NfcCardWidget;
 import 'package:flutter/material.dart';
 
-class HomePrimeCopyModel extends FlutterFlowModel<HomePrimeCopyWidget> {
+class NfcCardModel extends FlutterFlowModel<NfcCardWidget> {
   @override
   void initState(BuildContext context) {}
 

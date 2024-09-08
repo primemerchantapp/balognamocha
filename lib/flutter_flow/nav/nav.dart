@@ -129,17 +129,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : const QrCodeWidget(),
         ),
         FFRoute(
-          name: 'nfccard',
-          path: '/nfccard',
-          builder: (context, params) => const NfccardWidget(),
+          name: 'nfcCard',
+          path: '/nfcCard',
+          builder: (context, params) => const NfcCardWidget(),
         ),
         FFRoute(
-          name: 'MerchantDetails',
-          path: '/merchantDetails',
+          name: 'Details',
+          path: '/details',
           asyncParams: {
             'merch1': getDoc(['merchants'], MerchantsRecord.fromSnapshot),
           },
-          builder: (context, params) => MerchantDetailsWidget(
+          builder: (context, params) => DetailsWidget(
             merch1: params.getParam(
               'merch1',
               ParamType.Document,
@@ -147,9 +147,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'Create06BookAppointment',
-          path: '/create06BookAppointment',
-          builder: (context, params) => const Create06BookAppointmentWidget(),
+          name: 'ProfileUpdate',
+          path: '/ProfileUpdate',
+          builder: (context, params) => const ProfileUpdateWidget(),
         ),
         FFRoute(
           name: 'Profile12',
@@ -159,21 +159,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : const Profile12Widget(),
         ),
         FFRoute(
-          name: 'List08ProductList',
-          path: '/list08ProductList',
+          name: 'ProductList',
+          path: '/productList',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'List08ProductList')
-              : const List08ProductListWidget(),
+              ? const NavBarPage(initialPage: 'ProductList')
+              : const ProductListWidget(),
         ),
         FFRoute(
-          name: 'HomePrimeCopy',
-          path: '/homePrimeCopy',
-          builder: (context, params) => const HomePrimeCopyWidget(),
-        ),
-        FFRoute(
-          name: 'Home21',
-          path: '/home21',
-          builder: (context, params) => const Home21Widget(),
+          name: 'categoryHome',
+          path: '/categoryHome',
+          builder: (context, params) => const CategoryHomeWidget(),
         ),
         FFRoute(
           name: 'Profile12Edit',

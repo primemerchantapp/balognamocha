@@ -137,6 +137,11 @@ class UsersRecord extends FirestoreRecord {
   String get whatsapp => _whatsapp ?? '';
   bool hasWhatsapp() => _whatsapp != null;
 
+  // "job" field.
+  String? _job;
+  String get job => _job ?? '';
+  bool hasJob() => _job != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -162,6 +167,7 @@ class UsersRecord extends FirestoreRecord {
     _qrDataSharing = snapshotData['qr_data_sharing'] as String?;
     _fb = snapshotData['fb'] as String?;
     _whatsapp = snapshotData['whatsapp'] as String?;
+    _job = snapshotData['job'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -231,6 +237,7 @@ class UsersRecord extends FirestoreRecord {
           'qr_data_sharing': snapshot.data['qr_data_sharing'],
           'fb': snapshot.data['fb'],
           'whatsapp': snapshot.data['whatsapp'],
+          'job': snapshot.data['job'],
         },
         UsersRecord.collection.doc(snapshot.objectID),
       );
@@ -291,6 +298,7 @@ Map<String, dynamic> createUsersRecordData({
   String? qrDataSharing,
   String? fb,
   String? whatsapp,
+  String? job,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -318,6 +326,7 @@ Map<String, dynamic> createUsersRecordData({
       'qr_data_sharing': qrDataSharing,
       'fb': fb,
       'whatsapp': whatsapp,
+      'job': job,
     }.withoutNulls,
   );
 
@@ -352,7 +361,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.located == e2?.located &&
         e1?.qrDataSharing == e2?.qrDataSharing &&
         e1?.fb == e2?.fb &&
-        e1?.whatsapp == e2?.whatsapp;
+        e1?.whatsapp == e2?.whatsapp &&
+        e1?.job == e2?.job;
   }
 
   @override
@@ -380,7 +390,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.located,
         e?.qrDataSharing,
         e?.fb,
-        e?.whatsapp
+        e?.whatsapp,
+        e?.job
       ]);
 
   @override

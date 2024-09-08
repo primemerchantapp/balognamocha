@@ -176,25 +176,31 @@ class _Profile12EditWidgetState extends State<Profile12EditWidget> {
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            AuthUserStreamWidget(
-                              builder: (context) => Text(
-                                valueOrDefault<String>(
-                                  currentUserDisplayName,
-                                  'Guest',
-                                ),
-                                textAlign: TextAlign.center,
-                                style: FlutterFlowTheme.of(context)
-                                    .headlineSmall
-                                    .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .headlineSmallFamily,
-                                      letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .headlineSmallFamily),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                AuthUserStreamWidget(
+                                  builder: (context) => Text(
+                                    valueOrDefault<String>(
+                                      currentUserDisplayName,
+                                      'Guest',
                                     ),
-                              ),
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .headlineSmallFamily,
+                                          letterSpacing: 0.0,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineSmallFamily),
+                                        ),
+                                  ),
+                                ),
+                              ],
                             ),
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(

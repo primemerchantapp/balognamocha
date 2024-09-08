@@ -138,7 +138,7 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'allmerchantsMapView': const AllmerchantsMapViewWidget(),
-      'List08ProductList': const List08ProductListWidget(),
+      'ProductList': const ProductListWidget(),
       'HomePrime': const HomePrimeWidget(),
       'QrCode': const QrCodeWidget(),
       'Profile12': const Profile12Widget(),
@@ -178,8 +178,8 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: FaIcon(
-              FontAwesomeIcons.magento,
-              size: 44.0,
+              FontAwesomeIcons.home,
+              size: 40.0,
             ),
             label: 'Home',
             tooltip: '',

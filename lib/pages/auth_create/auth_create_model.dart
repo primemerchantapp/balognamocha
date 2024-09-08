@@ -12,10 +12,14 @@ class AuthCreateModel extends FlutterFlowModel<AuthCreateWidget> {
   FocusNode? emailAddressFocusNode;
   TextEditingController? emailAddressTextController;
   String? Function(BuildContext, String?)? emailAddressTextControllerValidator;
-  // State field(s) for sponsor widget.
-  FocusNode? sponsorFocusNode;
-  TextEditingController? sponsorTextController;
-  String? Function(BuildContext, String?)? sponsorTextControllerValidator;
+  // State field(s) for fullname widget.
+  FocusNode? fullnameFocusNode;
+  TextEditingController? fullnameTextController;
+  String? Function(BuildContext, String?)? fullnameTextControllerValidator;
+  // State field(s) for storeurl widget.
+  FocusNode? storeurlFocusNode;
+  TextEditingController? storeurlTextController;
+  String? Function(BuildContext, String?)? storeurlTextControllerValidator;
   // State field(s) for phone widget.
   FocusNode? phoneFocusNode;
   TextEditingController? phoneTextController;
@@ -45,8 +49,11 @@ class AuthCreateModel extends FlutterFlowModel<AuthCreateWidget> {
     emailAddressFocusNode?.dispose();
     emailAddressTextController?.dispose();
 
-    sponsorFocusNode?.dispose();
-    sponsorTextController?.dispose();
+    fullnameFocusNode?.dispose();
+    fullnameTextController?.dispose();
+
+    storeurlFocusNode?.dispose();
+    storeurlTextController?.dispose();
 
     phoneFocusNode?.dispose();
     phoneTextController?.dispose();

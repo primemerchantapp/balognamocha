@@ -8,11 +8,11 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'merchant_details_model.dart';
-export 'merchant_details_model.dart';
+import 'details_model.dart';
+export 'details_model.dart';
 
-class MerchantDetailsWidget extends StatefulWidget {
-  const MerchantDetailsWidget({
+class DetailsWidget extends StatefulWidget {
+  const DetailsWidget({
     super.key,
     required this.merch1,
   });
@@ -20,18 +20,18 @@ class MerchantDetailsWidget extends StatefulWidget {
   final MerchantsRecord? merch1;
 
   @override
-  State<MerchantDetailsWidget> createState() => _MerchantDetailsWidgetState();
+  State<DetailsWidget> createState() => _DetailsWidgetState();
 }
 
-class _MerchantDetailsWidgetState extends State<MerchantDetailsWidget> {
-  late MerchantDetailsModel _model;
+class _DetailsWidgetState extends State<DetailsWidget> {
+  late DetailsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => MerchantDetailsModel());
+    _model = createModel(context, () => DetailsModel());
   }
 
   @override
@@ -85,7 +85,6 @@ class _MerchantDetailsWidgetState extends State<MerchantDetailsWidget> {
         ),
         body: SingleChildScrollView(
           primary: false,
-          controller: _model.columnController1,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.end,
@@ -127,7 +126,6 @@ class _MerchantDetailsWidgetState extends State<MerchantDetailsWidget> {
                 primary: false,
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
-                controller: _model.listViewController,
                 children: [
                   Container(
                     width: double.infinity,
@@ -150,7 +148,6 @@ class _MerchantDetailsWidgetState extends State<MerchantDetailsWidget> {
                       ),
                     ),
                     child: SingleChildScrollView(
-                      controller: _model.columnController2,
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -272,7 +269,7 @@ class _MerchantDetailsWidgetState extends State<MerchantDetailsWidget> {
                                                       .titleLargeFamily,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primary,
+                                                      .primaryText,
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                               useGoogleFonts: GoogleFonts
@@ -295,7 +292,7 @@ class _MerchantDetailsWidgetState extends State<MerchantDetailsWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
-                                              size: 24.0,
+                                              size: 18.0,
                                             ),
                                           ),
                                           Padding(
@@ -307,7 +304,7 @@ class _MerchantDetailsWidgetState extends State<MerchantDetailsWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
-                                              size: 24.0,
+                                              size: 18.0,
                                             ),
                                           ),
                                           Padding(
@@ -319,7 +316,7 @@ class _MerchantDetailsWidgetState extends State<MerchantDetailsWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
-                                              size: 24.0,
+                                              size: 18.0,
                                             ),
                                           ),
                                           Padding(
@@ -331,7 +328,7 @@ class _MerchantDetailsWidgetState extends State<MerchantDetailsWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
-                                              size: 24.0,
+                                              size: 18.0,
                                             ),
                                           ),
                                           Padding(
@@ -343,7 +340,7 @@ class _MerchantDetailsWidgetState extends State<MerchantDetailsWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
-                                              size: 24.0,
+                                              size: 18.0,
                                             ),
                                           ),
                                         ],
@@ -377,10 +374,7 @@ class _MerchantDetailsWidgetState extends State<MerchantDetailsWidget> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        valueOrDefault<String>(
-                                          widget.merch1?.city,
-                                          'Pasig City',
-                                        ),
+                                        'Location',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -400,19 +394,15 @@ class _MerchantDetailsWidgetState extends State<MerchantDetailsWidget> {
                                             ),
                                       ),
                                       FFButtonWidget(
-                                        onPressed: () async {
-                                          await _model.listViewController
-                                              ?.animateTo(
-                                            _model.listViewController!.position
-                                                .maxScrollExtent,
-                                            duration:
-                                                const Duration(milliseconds: 100),
-                                            curve: Curves.ease,
-                                          );
+                                        onPressed: () {
+                                          print('Button pressed ...');
                                         },
-                                        text: 'Scroll to Map',
+                                        text: valueOrDefault<String>(
+                                          widget.merch1?.city,
+                                          'Pasig City',
+                                        ),
                                         options: FFButtonOptions(
-                                          width: 113.0,
+                                          width: 190.0,
                                           height: 39.0,
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(

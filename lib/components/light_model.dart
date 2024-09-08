@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'nfccard_widget.dart' show NfccardWidget;
+import 'light_widget.dart' show LightWidget;
 import 'package:flutter/material.dart';
 
-class NfccardModel extends FlutterFlowModel<NfccardWidget> {
+class LightModel extends FlutterFlowModel<LightWidget> {
   @override
   void initState(BuildContext context) {}
 

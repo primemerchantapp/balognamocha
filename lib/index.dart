@@ -10,16 +10,12 @@ export '/pages/create_merchant/create_merchant_widget.dart'
     show CreateMerchantWidget;
 export '/pages/onboarding/onboarding_widget.dart' show OnboardingWidget;
 export '/pages/qr_code/qr_code_widget.dart' show QrCodeWidget;
-export '/pages/nfccard/nfccard_widget.dart' show NfccardWidget;
-export '/pages/merchant_details/merchant_details_widget.dart'
-    show MerchantDetailsWidget;
-export '/pages/create06_book_appointment/create06_book_appointment_widget.dart'
-    show Create06BookAppointmentWidget;
+export '/pages/nfc_card/nfc_card_widget.dart' show NfcCardWidget;
+export '/pages/details/details_widget.dart' show DetailsWidget;
+export '/pages/profile_update/profile_update_widget.dart'
+    show ProfileUpdateWidget;
 export '/pages/profile12/profile12_widget.dart' show Profile12Widget;
-export '/pages/list08_product_list/list08_product_list_widget.dart'
-    show List08ProductListWidget;
-export '/pages/home_prime_copy/home_prime_copy_widget.dart'
-    show HomePrimeCopyWidget;
-export '/pages/home21/home21_widget.dart' show Home21Widget;
+export '/pages/product_list/product_list_widget.dart' show ProductListWidget;
+export '/pages/category_home/category_home_widget.dart' show CategoryHomeWidget;
 export '/pages/profile12_edit/profile12_edit_widget.dart'
     show Profile12EditWidget;

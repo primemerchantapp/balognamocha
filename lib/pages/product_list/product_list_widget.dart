@@ -5,26 +5,25 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'list08_product_list_model.dart';
-export 'list08_product_list_model.dart';
+import 'product_list_model.dart';
+export 'product_list_model.dart';
 
-class List08ProductListWidget extends StatefulWidget {
-  const List08ProductListWidget({super.key});
+class ProductListWidget extends StatefulWidget {
+  const ProductListWidget({super.key});
 
   @override
-  State<List08ProductListWidget> createState() =>
-      _List08ProductListWidgetState();
+  State<ProductListWidget> createState() => _ProductListWidgetState();
 }
 
-class _List08ProductListWidgetState extends State<List08ProductListWidget> {
-  late List08ProductListModel _model;
+class _ProductListWidgetState extends State<ProductListWidget> {
+  late ProductListModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => List08ProductListModel());
+    _model = createModel(context, () => ProductListModel());
   }
 
   @override

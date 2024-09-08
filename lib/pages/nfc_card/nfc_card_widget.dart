@@ -2,25 +2,25 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
 import 'package:flutter/material.dart';
-import 'nfccard_model.dart';
-export 'nfccard_model.dart';
+import 'nfc_card_model.dart';
+export 'nfc_card_model.dart';
 
-class NfccardWidget extends StatefulWidget {
-  const NfccardWidget({super.key});
+class NfcCardWidget extends StatefulWidget {
+  const NfcCardWidget({super.key});
 
   @override
-  State<NfccardWidget> createState() => _NfccardWidgetState();
+  State<NfcCardWidget> createState() => _NfcCardWidgetState();
 }
 
-class _NfccardWidgetState extends State<NfccardWidget> {
-  late NfccardModel _model;
+class _NfcCardWidgetState extends State<NfcCardWidget> {
+  late NfcCardModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => NfccardModel());
+    _model = createModel(context, () => NfcCardModel());
   }
 
   @override

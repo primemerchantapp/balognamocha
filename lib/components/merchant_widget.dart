@@ -58,7 +58,7 @@ class _MerchantWidgetState extends State<MerchantWidget> {
         highlightColor: Colors.transparent,
         onTap: () async {
           context.pushNamed(
-            'MerchantDetails',
+            'Details',
             queryParameters: {
               'merch1': serializeParam(
                 widget.parameter4,
@@ -129,25 +129,21 @@ class _MerchantWidgetState extends State<MerchantWidget> {
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 2.0, 0.0, 0.0),
-                                child: ClipRRect(
-                                  borderRadius: const BorderRadius.only(
-                                    bottomLeft: Radius.circular(0.0),
-                                    bottomRight: Radius.circular(0.0),
-                                    topLeft: Radius.circular(8.0),
-                                    topRight: Radius.circular(8.0),
+                              ClipRRect(
+                                borderRadius: const BorderRadius.only(
+                                  bottomLeft: Radius.circular(0.0),
+                                  bottomRight: Radius.circular(0.0),
+                                  topLeft: Radius.circular(8.0),
+                                  topRight: Radius.circular(8.0),
+                                ),
+                                child: Image.network(
+                                  valueOrDefault<String>(
+                                    widget.parameter1,
+                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/tudds-ccd0wn/assets/on3f25qvmyyj/prosperity_prime.gif',
                                   ),
-                                  child: Image.network(
-                                    valueOrDefault<String>(
-                                      widget.parameter1,
-                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/tudds-ccd0wn/assets/on3f25qvmyyj/prosperity_prime.gif',
-                                    ),
-                                    width: 305.0,
-                                    height: 172.0,
-                                    fit: BoxFit.cover,
-                                  ),
+                                  width: 307.0,
+                                  height: 168.0,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
                             ],
@@ -243,11 +239,8 @@ class _MerchantWidgetState extends State<MerchantWidget> {
                                     FlutterFlowTheme.of(context)
                                         .titleMediumFamily),
                               ),
-                          colors: [
-                            FlutterFlowTheme.of(context).primary,
-                            FlutterFlowTheme.of(context).secondary
-                          ],
-                          gradientDirection: GradientDirection.ltr,
+                          colors: const [],
+                          gradientDirection: GradientDirection.rtl,
                           gradientType: GradientType.linear,
                         ),
                         Padding(

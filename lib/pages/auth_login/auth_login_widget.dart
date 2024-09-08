@@ -172,6 +172,7 @@ class _AuthLoginWidgetState extends State<AuthLoginWidget>
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .displaySmallFamily,
+                                              fontSize: 22.0,
                                               letterSpacing: 0.0,
                                               useGoogleFonts: GoogleFonts
                                                       .asMap()

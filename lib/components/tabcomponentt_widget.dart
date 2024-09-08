@@ -77,10 +77,7 @@ class _TabcomponenttWidgetState extends State<TabcomponenttWidget> {
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
                             FlutterFlowTheme.of(context).bodyMediumFamily),
                       ),
-                  colors: [
-                    FlutterFlowTheme.of(context).primary,
-                    FlutterFlowTheme.of(context).secondary
-                  ],
+                  colors: const [],
                   gradientDirection: GradientDirection.ltr,
                   gradientType: GradientType.linear,
                 ),
