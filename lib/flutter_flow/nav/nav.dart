@@ -105,13 +105,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const ForgotPasswordWidget(),
         ),
         FFRoute(
-          name: 'Profile',
-          path: '/profile',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Profile')
-              : const ProfileWidget(),
-        ),
-        FFRoute(
           name: 'allmerchantsMapView',
           path: '/allmerchantsMapView',
           builder: (context, params) => params.isEmpty
@@ -131,17 +124,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'QrCode',
           path: '/qrCode',
-          builder: (context, params) => const QrCodeWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'QrCode')
+              : const QrCodeWidget(),
         ),
         FFRoute(
           name: 'nfccard',
           path: '/nfccard',
           builder: (context, params) => const NfccardWidget(),
-        ),
-        FFRoute(
-          name: 'ProfileDetailsShare',
-          path: '/profileDetailsShare',
-          builder: (context, params) => const ProfileDetailsShareWidget(),
         ),
         FFRoute(
           name: 'MerchantDetails',
@@ -155,6 +145,40 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.Document,
             ),
           ),
+        ),
+        FFRoute(
+          name: 'Create06BookAppointment',
+          path: '/create06BookAppointment',
+          builder: (context, params) => const Create06BookAppointmentWidget(),
+        ),
+        FFRoute(
+          name: 'Profile12',
+          path: '/profile12',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Profile12')
+              : const Profile12Widget(),
+        ),
+        FFRoute(
+          name: 'List08ProductList',
+          path: '/list08ProductList',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'List08ProductList')
+              : const List08ProductListWidget(),
+        ),
+        FFRoute(
+          name: 'HomePrimeCopy',
+          path: '/homePrimeCopy',
+          builder: (context, params) => const HomePrimeCopyWidget(),
+        ),
+        FFRoute(
+          name: 'Home21',
+          path: '/home21',
+          builder: (context, params) => const Home21Widget(),
+        ),
+        FFRoute(
+          name: 'Profile12Edit',
+          path: '/profile12Edit',
+          builder: (context, params) => const Profile12EditWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

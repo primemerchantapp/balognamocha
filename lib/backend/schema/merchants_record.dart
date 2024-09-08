@@ -107,6 +107,16 @@ class MerchantsRecord extends FirestoreRecord {
   String get banner => _banner ?? '';
   bool hasBanner() => _banner != null;
 
+  // "merchant" field.
+  String? _merchant;
+  String get merchant => _merchant ?? '';
+  bool hasMerchant() => _merchant != null;
+
+  // "seo" field.
+  String? _seo;
+  String get seo => _seo ?? '';
+  bool hasSeo() => _seo != null;
+
   void _initializeFields() {
     _companyName = snapshotData['company_name'] as String?;
     _describe = snapshotData['describe'] as String?;
@@ -126,6 +136,8 @@ class MerchantsRecord extends FirestoreRecord {
     _status = snapshotData['status'] as String?;
     _website = snapshotData['website'] as String?;
     _banner = snapshotData['banner'] as String?;
+    _merchant = snapshotData['merchant'] as String?;
+    _seo = snapshotData['seo'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -182,6 +194,8 @@ class MerchantsRecord extends FirestoreRecord {
           'status': snapshot.data['status'],
           'website': snapshot.data['website'],
           'banner': snapshot.data['banner'],
+          'merchant': snapshot.data['merchant'],
+          'seo': snapshot.data['seo'],
         },
         MerchantsRecord.collection.doc(snapshot.objectID),
       );
@@ -236,6 +250,8 @@ Map<String, dynamic> createMerchantsRecordData({
   String? status,
   String? website,
   String? banner,
+  String? merchant,
+  String? seo,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -257,6 +273,8 @@ Map<String, dynamic> createMerchantsRecordData({
       'status': status,
       'website': website,
       'banner': banner,
+      'merchant': merchant,
+      'seo': seo,
     }.withoutNulls,
   );
 
@@ -285,7 +303,9 @@ class MerchantsRecordDocumentEquality implements Equality<MerchantsRecord> {
         e1?.openHours == e2?.openHours &&
         e1?.status == e2?.status &&
         e1?.website == e2?.website &&
-        e1?.banner == e2?.banner;
+        e1?.banner == e2?.banner &&
+        e1?.merchant == e2?.merchant &&
+        e1?.seo == e2?.seo;
   }
 
   @override
@@ -307,7 +327,9 @@ class MerchantsRecordDocumentEquality implements Equality<MerchantsRecord> {
         e?.openHours,
         e?.status,
         e?.website,
-        e?.banner
+        e?.banner,
+        e?.merchant,
+        e?.seo
       ]);
 
   @override

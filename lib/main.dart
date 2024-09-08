@@ -1,3 +1,4 @@
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -20,7 +21,13 @@ void main() async {
 
   await FlutterFlowTheme.initialize();
 
-  runApp(const MyApp());
+  final appState = FFAppState(); // Initialize FFAppState
+  await appState.initializePersistedState();
+
+  runApp(ChangeNotifierProvider(
+    create: (context) => appState,
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
@@ -131,8 +138,10 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'allmerchantsMapView': const AllmerchantsMapViewWidget(),
+      'List08ProductList': const List08ProductListWidget(),
       'HomePrime': const HomePrimeWidget(),
-      'Profile': const ProfileWidget(),
+      'QrCode': const QrCodeWidget(),
+      'Profile12': const Profile12Widget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -160,6 +169,14 @@ class _NavBarPageState extends State<NavBarPage> {
             tooltip: '',
           ),
           BottomNavigationBarItem(
+            icon: Icon(
+              Icons.shopping_cart_rounded,
+              size: 24.0,
+            ),
+            label: 'products',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
             icon: FaIcon(
               FontAwesomeIcons.magento,
               size: 44.0,
@@ -168,11 +185,19 @@ class _NavBarPageState extends State<NavBarPage> {
             tooltip: '',
           ),
           BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.userAlt,
-              size: 18.0,
+            icon: Icon(
+              Icons.qr_code_scanner_sharp,
+              size: 24.0,
             ),
-            label: 'Profile',
+            label: 'Home',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(
+              FontAwesomeIcons.userTie,
+              size: 24.0,
+            ),
+            label: 'Settings',
             tooltip: '',
           )
         ],

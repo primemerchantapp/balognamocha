@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'profile_widget.dart' show ProfileWidget;
+import 'merchant_widget.dart' show MerchantWidget;
 import 'package:flutter/material.dart';
 
-class ProfileModel extends FlutterFlowModel<ProfileWidget> {
+class MerchantModel extends FlutterFlowModel<MerchantWidget> {
   @override
   void initState(BuildContext context) {}
 

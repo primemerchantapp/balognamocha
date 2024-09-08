@@ -1,5 +1,5 @@
-import '/components/logo_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/pages/components/logo/logo_widget.dart';
 import 'auth_create_widget.dart' show AuthCreateWidget;
 import 'package:flutter/material.dart';
 

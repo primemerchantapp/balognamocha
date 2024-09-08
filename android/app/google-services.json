@@ -13,7 +13,12 @@
           "package_name": "com.prime.merchantsapp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "786974954352-veb89vki2k2m7bf7d0kb2hoho1gikqqh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBdbZMsBlWV2OmznR8EYfHNZUHxI_pULHo"
@@ -21,7 +26,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "786974954352-veb89vki2k2m7bf7d0kb2hoho1gikqqh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "786974954352-iebnrat3p1m7tjg58f4h1rvqk3ho6ncv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.prime.merchantsapp"
+              }
+            }
+          ]
         }
       }
     }
