@@ -37,7 +37,7 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setDarkModeSetting(context, ThemeMode.dark);
+      setDarkModeSetting(context, ThemeMode.system);
     });
 
     animationsMap.addAll({
@@ -64,19 +64,6 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
             duration: 600.0.ms,
             begin: const Offset(1.0, 0.0),
             end: const Offset(1.0, 1.0),
-          ),
-        ],
-      ),
-      'containerOnActionTriggerAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 300.0.ms,
-            begin: const Offset(-40.0, 0.0),
-            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -143,145 +130,6 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
               ),
               Container(
                 decoration: const BoxDecoration(),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          if ((Theme.of(context).brightness ==
-                                  Brightness.light) ==
-                              true) {
-                            setDarkModeSetting(context, ThemeMode.dark);
-                            if (animationsMap[
-                                    'containerOnActionTriggerAnimation'] !=
-                                null) {
-                              animationsMap[
-                                      'containerOnActionTriggerAnimation']!
-                                  .controller
-                                  .forward(from: 0.0);
-                            }
-                          } else {
-                            setDarkModeSetting(context, ThemeMode.light);
-                            if (animationsMap[
-                                    'containerOnActionTriggerAnimation'] !=
-                                null) {
-                              animationsMap[
-                                      'containerOnActionTriggerAnimation']!
-                                  .controller
-                                  .reverse();
-                            }
-                          }
-                        },
-                        child: Container(
-                          width: 73.0,
-                          height: 33.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            borderRadius: BorderRadius.circular(20.0),
-                            border: Border.all(
-                              color: const Color(0xFFE0E3E7),
-                              width: 1.0,
-                            ),
-                          ),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              setDarkModeSetting(context, ThemeMode.dark);
-                            },
-                            child: Stack(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
-                              children: [
-                                Align(
-                                  alignment: const AlignmentDirectional(-0.9, 0.0),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        6.0, 0.0, 0.0, 0.0),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        setDarkModeSetting(
-                                            context, ThemeMode.light);
-                                      },
-                                      child: Icon(
-                                        Icons.brightness_7_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        size: 20.0,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                const Align(
-                                  alignment: AlignmentDirectional(1.0, 0.0),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 6.0, 0.0),
-                                    child: Icon(
-                                      Icons.mode_night_rounded,
-                                      color: Color(0xFF57636C),
-                                      size: 24.0,
-                                    ),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: const AlignmentDirectional(1.0, 0.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      setDarkModeSetting(
-                                          context, ThemeMode.light);
-                                    },
-                                    child: Container(
-                                      width: 40.0,
-                                      height: 27.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        boxShadow: const [
-                                          BoxShadow(
-                                            blurRadius: 4.0,
-                                            color: Color(0x430B0D0F),
-                                            offset: Offset(
-                                              0.0,
-                                              2.0,
-                                            ),
-                                          )
-                                        ],
-                                        borderRadius:
-                                            BorderRadius.circular(30.0),
-                                        shape: BoxShape.rectangle,
-                                      ),
-                                    ),
-                                  ).animateOnActionTrigger(
-                                    animationsMap[
-                                        'containerOnActionTriggerAnimation']!,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
               ),
             ],
           ),

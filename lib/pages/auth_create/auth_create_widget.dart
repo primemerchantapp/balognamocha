@@ -917,18 +917,10 @@ class _AuthCreateWidgetState extends State<AuthCreateWidget>
                                                     phoneNumber: _model
                                                         .phoneTextController
                                                         .text,
-                                                    accountNumber: _model
-                                                        .phoneTextController
-                                                        .text,
                                                     photoUrl:
                                                         'https://www.shutterstock.com/image-vector/illustration-plus-sign-on-camera-600nw-784781086.jpg',
                                                     located:
                                                         currentUserLocationValue,
-                                                    affiliateCode: (_model
-                                                                .storeurlFocusNode
-                                                                ?.hasFocus ??
-                                                            false)
-                                                        .toString(),
                                                     qrDataSharing:
                                                         valueOrDefault<String>(
                                                       _model
@@ -964,7 +956,9 @@ class _AuthCreateWidgetState extends State<AuthCreateWidget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .titleSmallFamily,
-                                                        color: Colors.white,
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .primaryBackground,
                                                         letterSpacing: 0.0,
                                                         useGoogleFonts: GoogleFonts
                                                                 .asMap()

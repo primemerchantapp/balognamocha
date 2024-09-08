@@ -89,10 +89,7 @@ class _CategoryHomeWidgetState extends State<CategoryHomeWidget>
                 builder: (context) => ClipRRect(
                   borderRadius: BorderRadius.circular(50.0),
                   child: Image.network(
-                    valueOrDefault<String>(
-                      currentUserPhoto,
-                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/tudds-ccd0wn/assets/oik71vyih9s3/download_(1).jpeg',
-                    ),
+                    currentUserPhoto,
                     width: 300.0,
                     height: 200.0,
                     fit: BoxFit.cover,
@@ -949,7 +946,7 @@ class _CategoryHomeWidgetState extends State<CategoryHomeWidget>
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
-                                                            size: 22.0,
+                                                            size: 32.0,
                                                           ),
                                                         ),
                                                       ],

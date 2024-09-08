@@ -142,6 +142,11 @@ class UsersRecord extends FirestoreRecord {
   String get job => _job ?? '';
   bool hasJob() => _job != null;
 
+  // "officeaddress" field.
+  LatLng? _officeaddress;
+  LatLng? get officeaddress => _officeaddress;
+  bool hasOfficeaddress() => _officeaddress != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -168,6 +173,7 @@ class UsersRecord extends FirestoreRecord {
     _fb = snapshotData['fb'] as String?;
     _whatsapp = snapshotData['whatsapp'] as String?;
     _job = snapshotData['job'] as String?;
+    _officeaddress = snapshotData['officeaddress'] as LatLng?;
   }
 
   static CollectionReference get collection =>
@@ -238,6 +244,11 @@ class UsersRecord extends FirestoreRecord {
           'fb': snapshot.data['fb'],
           'whatsapp': snapshot.data['whatsapp'],
           'job': snapshot.data['job'],
+          'officeaddress': convertAlgoliaParam(
+            snapshot.data,
+            ParamType.LatLng,
+            false,
+          ),
         },
         UsersRecord.collection.doc(snapshot.objectID),
       );
@@ -299,6 +310,7 @@ Map<String, dynamic> createUsersRecordData({
   String? fb,
   String? whatsapp,
   String? job,
+  LatLng? officeaddress,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -327,6 +339,7 @@ Map<String, dynamic> createUsersRecordData({
       'fb': fb,
       'whatsapp': whatsapp,
       'job': job,
+      'officeaddress': officeaddress,
     }.withoutNulls,
   );
 
@@ -362,7 +375,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.qrDataSharing == e2?.qrDataSharing &&
         e1?.fb == e2?.fb &&
         e1?.whatsapp == e2?.whatsapp &&
-        e1?.job == e2?.job;
+        e1?.job == e2?.job &&
+        e1?.officeaddress == e2?.officeaddress;
   }
 
   @override
@@ -391,7 +405,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.qrDataSharing,
         e?.fb,
         e?.whatsapp,
-        e?.job
+        e?.job,
+        e?.officeaddress
       ]);
 
   @override

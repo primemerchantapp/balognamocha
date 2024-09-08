@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -58,28 +57,6 @@ class _ProductListWidgetState extends State<ProductListWidget> {
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
                           FlutterFlowTheme.of(context).displaySmallFamily),
                     ),
-              ),
-              Container(
-                width: 50.0,
-                height: 50.0,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                  shape: BoxShape.circle,
-                ),
-                child: AuthUserStreamWidget(
-                  builder: (context) => Container(
-                    width: 50.0,
-                    height: 50.0,
-                    clipBehavior: Clip.antiAlias,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                    ),
-                    child: Image.network(
-                      currentUserPhoto,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
               ),
             ],
           ),

@@ -169,6 +169,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'ProfileMain')
               : const ProfileMainWidget(),
+        ),
+        FFRoute(
+          name: 'About',
+          path: '/about',
+          builder: (context, params) => const AboutWidget(),
+        ),
+        FFRoute(
+          name: 'PrimeOffice',
+          path: '/primeOffice',
+          builder: (context, params) => const PrimeOfficeWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

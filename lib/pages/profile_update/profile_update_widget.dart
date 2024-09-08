@@ -948,7 +948,7 @@ class _ProfileUpdateWidgetState extends State<ProfileUpdateWidget> {
                       text: 'Save Changes',
                       options: FFButtonOptions(
                         width: double.infinity,
-                        height: 48.0,
+                        height: 51.0,
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         iconPadding:
