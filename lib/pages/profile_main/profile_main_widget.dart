@@ -1019,7 +1019,10 @@ class _ProfileMainWidgetState extends State<ProfileMainWidget> {
                                                 children: [
                                                   AuthUserStreamWidget(
                                                     builder: (context) => Text(
-                                                      currentUserDisplayName,
+                                                      valueOrDefault<String>(
+                                                        currentUserDisplayName,
+                                                        'Guest User',
+                                                      ),
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
