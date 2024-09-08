@@ -174,6 +174,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Profile12Edit',
           path: '/profile12Edit',
           builder: (context, params) => const Profile12EditWidget(),
+        ),
+        FFRoute(
+          name: 'ProfileMain',
+          path: '/profileMain',
+          builder: (context, params) => const ProfileMainWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

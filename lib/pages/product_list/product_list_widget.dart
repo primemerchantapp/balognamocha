@@ -1,5 +1,5 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -43,36 +43,47 @@ class _ProductListWidgetState extends State<ProductListWidget> {
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
-          title: Text(
-            'Order Now',
-            style: FlutterFlowTheme.of(context).displaySmall.override(
-                  fontFamily: FlutterFlowTheme.of(context).displaySmallFamily,
-                  color: FlutterFlowTheme.of(context).primaryBackground,
-                  fontSize: 18.0,
-                  letterSpacing: 0.0,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey(
-                      FlutterFlowTheme.of(context).displaySmallFamily),
-                ),
-          ),
-          actions: [
-            Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
-              child: FlutterFlowIconButton(
-                borderColor: Colors.transparent,
-                borderRadius: 30.0,
-                borderWidth: 1.0,
-                buttonSize: 68.0,
-                icon: Icon(
-                  Icons.close,
-                  color: FlutterFlowTheme.of(context).primaryBackground,
-                  size: 24.0,
-                ),
-                onPressed: () async {
-                  context.safePop();
-                },
+          title: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Order Now',
+                style: FlutterFlowTheme.of(context).displaySmall.override(
+                      fontFamily:
+                          FlutterFlowTheme.of(context).displaySmallFamily,
+                      color: FlutterFlowTheme.of(context).primaryBackground,
+                      fontSize: 18.0,
+                      letterSpacing: 0.0,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).displaySmallFamily),
+                    ),
               ),
-            ),
-          ],
+              Container(
+                width: 50.0,
+                height: 50.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  shape: BoxShape.circle,
+                ),
+                child: AuthUserStreamWidget(
+                  builder: (context) => Container(
+                    width: 50.0,
+                    height: 50.0,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                    ),
+                    child: Image.network(
+                      currentUserPhoto,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          actions: const [],
           centerTitle: false,
           elevation: 0.0,
         ),

@@ -921,7 +921,7 @@ class _AuthCreateWidgetState extends State<AuthCreateWidget>
                                                         .phoneTextController
                                                         .text,
                                                     photoUrl:
-                                                        'https://i.pinimg.com/564x/0f/a5/15/0fa5157777b7ccaf2fc60ddaefe53cae.jpg',
+                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/tudds-ccd0wn/assets/oik71vyih9s3/download_(1).jpeg',
                                                     located:
                                                         currentUserLocationValue,
                                                     affiliateCode: (_model

@@ -1,5 +1,4 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'profile_update_widget.dart' show ProfileUpdateWidget;
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -16,14 +15,14 @@ class ProfileUpdateModel extends FlutterFlowModel<ProfileUpdateWidget> {
   FocusNode? mobileFocusNode;
   TextEditingController? mobileTextController;
   String? Function(BuildContext, String?)? mobileTextControllerValidator;
+  // State field(s) for onlinedomain widget.
+  FocusNode? onlinedomainFocusNode;
+  TextEditingController? onlinedomainTextController;
+  String? Function(BuildContext, String?)? onlinedomainTextControllerValidator;
   // State field(s) for address widget.
   FocusNode? addressFocusNode;
   TextEditingController? addressTextController;
   String? Function(BuildContext, String?)? addressTextControllerValidator;
-  // State field(s) for age widget.
-  FocusNode? ageFocusNode;
-  TextEditingController? ageTextController;
-  String? Function(BuildContext, String?)? ageTextControllerValidator;
   // State field(s) for dateOfBirth widget.
   FocusNode? dateOfBirthFocusNode;
   TextEditingController? dateOfBirthTextController;
@@ -38,12 +37,6 @@ class ProfileUpdateModel extends FlutterFlowModel<ProfileUpdateWidget> {
     return null;
   }
 
-  // State field(s) for ChoiceChips widget.
-  FormFieldController<List<String>>? choiceChipsValueController;
-  String? get choiceChipsValue =>
-      choiceChipsValueController?.value?.firstOrNull;
-  set choiceChipsValue(String? val) =>
-      choiceChipsValueController?.value = val != null ? [val] : [];
   // State field(s) for description widget.
   FocusNode? descriptionFocusNode;
   TextEditingController? descriptionTextController;
@@ -62,11 +55,11 @@ class ProfileUpdateModel extends FlutterFlowModel<ProfileUpdateWidget> {
     mobileFocusNode?.dispose();
     mobileTextController?.dispose();
 
+    onlinedomainFocusNode?.dispose();
+    onlinedomainTextController?.dispose();
+
     addressFocusNode?.dispose();
     addressTextController?.dispose();
-
-    ageFocusNode?.dispose();
-    ageTextController?.dispose();
 
     dateOfBirthFocusNode?.dispose();
     dateOfBirthTextController?.dispose();
