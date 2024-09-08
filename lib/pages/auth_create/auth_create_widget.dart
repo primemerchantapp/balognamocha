@@ -929,9 +929,13 @@ class _AuthCreateWidgetState extends State<AuthCreateWidget>
                                                                 ?.hasFocus ??
                                                             false)
                                                         .toString(),
-                                                    qrDataSharing: _model
-                                                        .storeurlTextController
-                                                        .text,
+                                                    qrDataSharing:
+                                                        valueOrDefault<String>(
+                                                      _model
+                                                          .storeurlTextController
+                                                          .text,
+                                                      'https://prosperityprimeglobal.com/affiliate-link-added-here-for-qr',
+                                                    ),
                                                   ));
 
                                               await Future.delayed(

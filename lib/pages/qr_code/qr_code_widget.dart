@@ -166,13 +166,9 @@ class _QrCodeWidgetState extends State<QrCodeWidget> {
                                     alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: AuthUserStreamWidget(
                                       builder: (context) => BarcodeWidget(
-                                        data: valueOrDefault<String>(
-                                          valueOrDefault(
-                                              currentUserDocument
-                                                  ?.qrDataSharing,
-                                              ''),
-                                          'https://aitekph.com/',
-                                        ),
+                                        data: valueOrDefault(
+                                            currentUserDocument?.qrDataSharing,
+                                            ''),
                                         barcode: Barcode.qrCode(),
                                         width: 250.0,
                                         height: 250.0,

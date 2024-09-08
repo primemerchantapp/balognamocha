@@ -138,7 +138,7 @@ class _LightWidgetState extends State<LightWidget>
                       width: 36.0,
                       height: 36.0,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        color: FlutterFlowTheme.of(context).primary,
                         boxShadow: const [
                           BoxShadow(
                             blurRadius: 4.0,
@@ -151,6 +151,9 @@ class _LightWidgetState extends State<LightWidget>
                         ],
                         borderRadius: BorderRadius.circular(30.0),
                         shape: BoxShape.rectangle,
+                        border: Border.all(
+                          color: FlutterFlowTheme.of(context).alternate,
+                        ),
                       ),
                     ),
                   ).animateOnActionTrigger(

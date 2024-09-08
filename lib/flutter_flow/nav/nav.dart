@@ -166,7 +166,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'ProfileMain',
           path: '/profileMain',
-          builder: (context, params) => const ProfileMainWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'ProfileMain')
+              : const ProfileMainWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
