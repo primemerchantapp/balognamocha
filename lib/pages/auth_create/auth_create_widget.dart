@@ -928,13 +928,6 @@ class _AuthCreateWidgetState extends State<AuthCreateWidget>
                                                           .text,
                                                       'https://prosperityprimeglobal.com/affiliate-link-added-here-for-qr',
                                                     ),
-                                                    displayName:
-                                                        valueOrDefault<String>(
-                                                      _model
-                                                          .fullnameTextController
-                                                          .text,
-                                                      'Prime Guest',
-                                                    ),
                                                   ));
 
                                               await Future.delayed(

@@ -89,7 +89,10 @@ class _CategoryHomeWidgetState extends State<CategoryHomeWidget>
                 builder: (context) => ClipRRect(
                   borderRadius: BorderRadius.circular(50.0),
                   child: Image.network(
-                    currentUserPhoto,
+                    valueOrDefault<String>(
+                      currentUserPhoto,
+                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/tudds-ccd0wn/assets/oik71vyih9s3/download_(1).jpeg',
+                    ),
                     width: 300.0,
                     height: 200.0,
                     fit: BoxFit.cover,
@@ -142,6 +145,7 @@ class _CategoryHomeWidgetState extends State<CategoryHomeWidget>
           primary: false,
           child: Column(
             mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               InkWell(
@@ -372,20 +376,6 @@ class _CategoryHomeWidgetState extends State<CategoryHomeWidget>
                       }
                       List<MerchantsRecord> listViewMerchantsRecordList =
                           snapshot.data!;
-                      if (listViewMerchantsRecordList.isEmpty) {
-                        return ClipRRect(
-                          borderRadius: const BorderRadius.only(
-                            bottomLeft: Radius.circular(8.0),
-                            bottomRight: Radius.circular(8.0),
-                            topLeft: Radius.circular(8.0),
-                            topRight: Radius.circular(8.0),
-                          ),
-                          child: Image.asset(
-                            'https://cdn.dribbble.com/users/1078347/screenshots/2787652/category_not_found.png',
-                            fit: BoxFit.cover,
-                          ),
-                        );
-                      }
 
                       return ListView.separated(
                         padding: const EdgeInsets.fromLTRB(
@@ -769,7 +759,6 @@ class _CategoryHomeWidgetState extends State<CategoryHomeWidget>
                       0,
                       44.0,
                     ),
-                    primary: false,
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     itemCount: listViewMerchantsRecordList.length,
@@ -821,97 +810,220 @@ class _CategoryHomeWidgetState extends State<CategoryHomeWidget>
                                   topRight: Radius.circular(8.0),
                                 ),
                               ),
-                              child: SingleChildScrollView(
-                                child: Column(
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 16.0, 0.0),
+                                child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 16.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Container(
-                                            width: 151.0,
-                                            height: 100.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .accent1,
-                                              borderRadius:
-                                                  BorderRadius.circular(12.0),
-                                              border: Border.all(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                              ),
+                                    Container(
+                                      width: 151.0,
+                                      height: 100.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent1,
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(2.0),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                          child: Image.network(
+                                            valueOrDefault<String>(
+                                              listViewMerchantsRecord.image1,
+                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/tudds-ccd0wn/assets/on3f25qvmyyj/prosperity_prime.gif',
                                             ),
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(2.0),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(10.0),
-                                                child: Image.network(
-                                                  valueOrDefault<String>(
-                                                    listViewMerchantsRecord
-                                                        .image1,
-                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/tudds-ccd0wn/assets/on3f25qvmyyj/prosperity_prime.gif',
-                                                  ),
-                                                  width: 142.0,
-                                                  height: 120.0,
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
-                                            ),
+                                            width: 142.0,
+                                            height: 120.0,
+                                            fit: BoxFit.cover,
                                           ),
-                                          Expanded(
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 0.0, 0.0, 0.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    listViewMerchantsRecord
-                                                        .companyName,
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 0.0, 0.0, 0.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              listViewMerchantsRecord
+                                                  .companyName,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyLargeFamily,
+                                                        fontSize: 18.0,
+                                                        letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLargeFamily),
+                                                      ),
+                                            ),
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Expanded(
+                                                  child: Text(
+                                                    'Located in ${valueOrDefault<String>(
+                                                      listViewMerchantsRecord
+                                                          .city,
+                                                      ' not found city',
+                                                    )}',
+                                                    maxLines: 1,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyLarge
+                                                        .labelSmall
                                                         .override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodyLargeFamily,
-                                                          fontSize: 18.0,
+                                                                  .labelSmallFamily,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
                                                               .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyLargeFamily),
+                                                                      .labelSmallFamily),
                                                         ),
+                                                  ),
+                                                ),
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            context.pushNamed(
+                                                              'Details',
+                                                              queryParameters: {
+                                                                'merch1':
+                                                                    serializeParam(
+                                                                  listViewMerchantsRecord,
+                                                                  ParamType
+                                                                      .Document,
+                                                                ),
+                                                              }.withoutNulls,
+                                                              extra: <String,
+                                                                  dynamic>{
+                                                                'merch1':
+                                                                    listViewMerchantsRecord,
+                                                              },
+                                                            );
+                                                          },
+                                                          child: Icon(
+                                                            Icons.location_pin,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            size: 32.0,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                4.0, 0.0),
+                                                    child: FaIcon(
+                                                      FontAwesomeIcons
+                                                          .solidClock,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                      size: 16.0,
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                12.0, 0.0),
+                                                    child: Text(
+                                                      'Opens',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelSmall
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelSmallFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .labelSmallFamily),
+                                                              ),
+                                                    ),
                                                   ),
                                                   Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
                                                     children: [
-                                                      Expanded(
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    16.0,
+                                                                    0.0),
                                                         child: Text(
-                                                          'Located in ${valueOrDefault<String>(
+                                                          valueOrDefault<
+                                                              String>(
                                                             listViewMerchantsRecord
-                                                                .city,
-                                                            ' not found city',
-                                                          )}',
-                                                          maxLines: 1,
+                                                                .openHours,
+                                                            '24 Hours',
+                                                          ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .labelSmall
@@ -929,159 +1041,13 @@ class _CategoryHomeWidgetState extends State<CategoryHomeWidget>
                                                               ),
                                                         ),
                                                       ),
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              InkWell(
-                                                                splashColor: Colors
-                                                                    .transparent,
-                                                                focusColor: Colors
-                                                                    .transparent,
-                                                                hoverColor: Colors
-                                                                    .transparent,
-                                                                highlightColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                onTap:
-                                                                    () async {
-                                                                  context
-                                                                      .pushNamed(
-                                                                    'Details',
-                                                                    queryParameters:
-                                                                        {
-                                                                      'merch1':
-                                                                          serializeParam(
-                                                                        listViewMerchantsRecord,
-                                                                        ParamType
-                                                                            .Document,
-                                                                      ),
-                                                                    }.withoutNulls,
-                                                                    extra: <String,
-                                                                        dynamic>{
-                                                                      'merch1':
-                                                                          listViewMerchantsRecord,
-                                                                    },
-                                                                  );
-                                                                },
-                                                                child: Icon(
-                                                                  Icons
-                                                                      .location_pin,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  size: 32.0,
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ],
-                                                      ),
                                                     ],
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 4.0,
-                                                                0.0, 0.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      4.0,
-                                                                      0.0),
-                                                          child: FaIcon(
-                                                            FontAwesomeIcons
-                                                                .solidClock,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryText,
-                                                            size: 16.0,
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      12.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            'Opens',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .labelSmall
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelSmallFamily,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .labelSmallFamily),
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          16.0,
-                                                                          0.0),
-                                                              child: Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  listViewMerchantsRecord
-                                                                      .openHours,
-                                                                  '24 Hours',
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelSmall
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .labelSmallFamily,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      useGoogleFonts: GoogleFonts
-                                                                              .asMap()
-                                                                          .containsKey(
-                                                                              FlutterFlowTheme.of(context).labelSmallFamily),
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ].divide(const SizedBox(height: 4.0)),
+                                                ],
                                               ),
                                             ),
-                                          ),
-                                        ],
+                                          ].divide(const SizedBox(height: 4.0)),
+                                        ),
                                       ),
                                     ),
                                   ],

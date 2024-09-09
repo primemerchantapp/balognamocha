@@ -39,9 +39,15 @@ class _ProfileUpdateWidgetState extends State<ProfileUpdateWidget> {
     _model.addressTextController ??= TextEditingController();
     _model.addressFocusNode ??= FocusNode();
     _model.addressFocusNode!.addListener(() => safeSetState(() {}));
-    _model.dateOfBirthTextController ??= TextEditingController();
-    _model.dateOfBirthFocusNode ??= FocusNode();
-    _model.dateOfBirthFocusNode!.addListener(() => safeSetState(() {}));
+    _model.dateOfBirthTextController1 ??= TextEditingController();
+    _model.dateOfBirthFocusNode1 ??= FocusNode();
+    _model.dateOfBirthFocusNode1!.addListener(() => safeSetState(() {}));
+    _model.dateOfBirthTextController2 ??= TextEditingController();
+    _model.dateOfBirthFocusNode2 ??= FocusNode();
+    _model.dateOfBirthFocusNode2!.addListener(() => safeSetState(() {}));
+    _model.dateOfBirthTextController3 ??= TextEditingController();
+    _model.dateOfBirthFocusNode3 ??= FocusNode();
+    _model.dateOfBirthFocusNode3!.addListener(() => safeSetState(() {}));
     _model.descriptionTextController ??= TextEditingController();
     _model.descriptionFocusNode ??= FocusNode();
     _model.descriptionFocusNode!.addListener(() => safeSetState(() {}));
@@ -624,8 +630,8 @@ class _ProfileUpdateWidgetState extends State<ProfileUpdateWidget> {
                                     ),
                                     TextFormField(
                                       controller:
-                                          _model.dateOfBirthTextController,
-                                      focusNode: _model.dateOfBirthFocusNode,
+                                          _model.dateOfBirthTextController1,
+                                      focusNode: _model.dateOfBirthFocusNode1,
                                       autofocus: true,
                                       textCapitalization:
                                           TextCapitalization.words,
@@ -715,7 +721,7 @@ class _ProfileUpdateWidgetState extends State<ProfileUpdateWidget> {
                                               BorderRadius.circular(12.0),
                                         ),
                                         filled: true,
-                                        fillColor: (_model.dateOfBirthFocusNode
+                                        fillColor: (_model.dateOfBirthFocusNode1
                                                     ?.hasFocus ??
                                                 false)
                                             ? FlutterFlowTheme.of(context)
@@ -741,9 +747,261 @@ class _ProfileUpdateWidgetState extends State<ProfileUpdateWidget> {
                                       cursorColor:
                                           FlutterFlowTheme.of(context).primary,
                                       validator: _model
-                                          .dateOfBirthTextControllerValidator
+                                          .dateOfBirthTextController1Validator
                                           .asValidator(context),
-                                      inputFormatters: [_model.dateOfBirthMask],
+                                      inputFormatters: [
+                                        _model.dateOfBirthMask1
+                                      ],
+                                    ),
+                                    TextFormField(
+                                      controller:
+                                          _model.dateOfBirthTextController2,
+                                      focusNode: _model.dateOfBirthFocusNode2,
+                                      autofocus: true,
+                                      textCapitalization:
+                                          TextCapitalization.words,
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        labelText: 'Date of birth*',
+                                        labelStyle: FlutterFlowTheme.of(context)
+                                            .labelLarge
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLargeFamily,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelLargeFamily),
+                                            ),
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMediumFamily,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMediumFamily),
+                                            ),
+                                        errorStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .error,
+                                              fontSize: 12.0,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
+                                            ),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        errorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        focusedErrorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        filled: true,
+                                        fillColor: (_model.dateOfBirthFocusNode2
+                                                    ?.hasFocus ??
+                                                false)
+                                            ? FlutterFlowTheme.of(context)
+                                                .accent1
+                                            : FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                        contentPadding:
+                                            const EdgeInsetsDirectional.fromSTEB(
+                                                16.0, 20.0, 16.0, 20.0),
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyLargeFamily,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyLargeFamily),
+                                          ),
+                                      cursorColor:
+                                          FlutterFlowTheme.of(context).primary,
+                                      validator: _model
+                                          .dateOfBirthTextController2Validator
+                                          .asValidator(context),
+                                      inputFormatters: [
+                                        _model.dateOfBirthMask2
+                                      ],
+                                    ),
+                                    TextFormField(
+                                      controller:
+                                          _model.dateOfBirthTextController3,
+                                      focusNode: _model.dateOfBirthFocusNode3,
+                                      autofocus: true,
+                                      textCapitalization:
+                                          TextCapitalization.words,
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        labelText: 'Date of birth*',
+                                        labelStyle: FlutterFlowTheme.of(context)
+                                            .labelLarge
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLargeFamily,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelLargeFamily),
+                                            ),
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMediumFamily,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMediumFamily),
+                                            ),
+                                        errorStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .error,
+                                              fontSize: 12.0,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
+                                            ),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        errorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        focusedErrorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        filled: true,
+                                        fillColor: (_model.dateOfBirthFocusNode3
+                                                    ?.hasFocus ??
+                                                false)
+                                            ? FlutterFlowTheme.of(context)
+                                                .accent1
+                                            : FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                        contentPadding:
+                                            const EdgeInsetsDirectional.fromSTEB(
+                                                16.0, 20.0, 16.0, 20.0),
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyLargeFamily,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyLargeFamily),
+                                          ),
+                                      cursorColor:
+                                          FlutterFlowTheme.of(context).primary,
+                                      validator: _model
+                                          .dateOfBirthTextController3Validator
+                                          .asValidator(context),
+                                      inputFormatters: [
+                                        _model.dateOfBirthMask3
+                                      ],
                                     ),
                                     Divider(
                                       height: 2.0,
@@ -948,7 +1206,7 @@ class _ProfileUpdateWidgetState extends State<ProfileUpdateWidget> {
                       text: 'Save Changes',
                       options: FFButtonOptions(
                         width: double.infinity,
-                        height: 51.0,
+                        height: 58.0,
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         iconPadding:

@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/components/merchant/merchant_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -33,6 +34,11 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePrimeModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setDarkModeSetting(context, ThemeMode.dark);
+    });
 
     animationsMap.addAll({
       'columnOnPageLoadAnimation': AnimationInfo(
@@ -218,7 +224,7 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                                           .bodyMediumFamily,
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .secondaryText,
+                                                      .primaryText,
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   useGoogleFonts: GoogleFonts
@@ -294,9 +300,6 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .bodyMediumFamily,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   useGoogleFonts: GoogleFonts
@@ -372,9 +375,6 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .bodyMediumFamily,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   useGoogleFonts: GoogleFonts
@@ -450,9 +450,6 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .bodyMediumFamily,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   useGoogleFonts: GoogleFonts
@@ -493,7 +490,7 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                               decoration: const BoxDecoration(),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 4.0, 16.0, 0.0),
+                                    16.0, 4.0, 0.0, 0.0),
                                 child: StreamBuilder<List<MerchantsRecord>>(
                                   stream: queryMerchantsRecord(),
                                   builder: (context, snapshot) {
@@ -526,59 +523,55 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                         final listViewMerchantsRecord =
                                             listViewMerchantsRecordList[
                                                 listViewIndex];
-                                        return Container(
-                                          decoration: const BoxDecoration(),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  context.pushNamed(
-                                                    'Details',
-                                                    queryParameters: {
-                                                      'merch1': serializeParam(
-                                                        listViewMerchantsRecord,
-                                                        ParamType.Document,
-                                                      ),
-                                                    }.withoutNulls,
-                                                    extra: <String, dynamic>{
-                                                      'merch1':
-                                                          listViewMerchantsRecord,
-                                                    },
-                                                  );
-                                                },
-                                                child: MerchantWidget(
-                                                  key: Key(
-                                                      'Key4mb_${listViewIndex}_of_${listViewMerchantsRecordList.length}'),
-                                                  parameter1:
-                                                      valueOrDefault<String>(
-                                                    listViewMerchantsRecord
-                                                        .image1,
-                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/tudds-ccd0wn/assets/on3f25qvmyyj/prosperity_prime.gif',
-                                                  ),
-                                                  parameter2:
-                                                      valueOrDefault<String>(
-                                                    listViewMerchantsRecord
-                                                        .companyName,
-                                                    'Name',
-                                                  ),
-                                                  parameter3:
-                                                      valueOrDefault<String>(
-                                                    listViewMerchantsRecord
-                                                        .city,
-                                                    'My City',
-                                                  ),
-                                                  parameter4:
+                                        return Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.pushNamed(
+                                                  'Details',
+                                                  queryParameters: {
+                                                    'merch1': serializeParam(
                                                       listViewMerchantsRecord,
+                                                      ParamType.Document,
+                                                    ),
+                                                  }.withoutNulls,
+                                                  extra: <String, dynamic>{
+                                                    'merch1':
+                                                        listViewMerchantsRecord,
+                                                  },
+                                                );
+                                              },
+                                              child: MerchantWidget(
+                                                key: Key(
+                                                    'Key4mb_${listViewIndex}_of_${listViewMerchantsRecordList.length}'),
+                                                parameter1:
+                                                    valueOrDefault<String>(
+                                                  listViewMerchantsRecord
+                                                      .image1,
+                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/tudds-ccd0wn/assets/on3f25qvmyyj/prosperity_prime.gif',
                                                 ),
+                                                parameter2:
+                                                    valueOrDefault<String>(
+                                                  listViewMerchantsRecord
+                                                      .companyName,
+                                                  'Name',
+                                                ),
+                                                parameter3:
+                                                    valueOrDefault<String>(
+                                                  listViewMerchantsRecord.city,
+                                                  'My City',
+                                                ),
+                                                parameter4:
+                                                    listViewMerchantsRecord,
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                          ],
                                         );
                                       },
                                     );

@@ -24,11 +24,11 @@ class ProfileUpdateModel extends FlutterFlowModel<ProfileUpdateWidget> {
   TextEditingController? addressTextController;
   String? Function(BuildContext, String?)? addressTextControllerValidator;
   // State field(s) for dateOfBirth widget.
-  FocusNode? dateOfBirthFocusNode;
-  TextEditingController? dateOfBirthTextController;
-  final dateOfBirthMask = MaskTextInputFormatter(mask: '##/##/####');
-  String? Function(BuildContext, String?)? dateOfBirthTextControllerValidator;
-  String? _dateOfBirthTextControllerValidator(
+  FocusNode? dateOfBirthFocusNode1;
+  TextEditingController? dateOfBirthTextController1;
+  final dateOfBirthMask1 = MaskTextInputFormatter(mask: '##/##/####');
+  String? Function(BuildContext, String?)? dateOfBirthTextController1Validator;
+  String? _dateOfBirthTextController1Validator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'Please enter the date of birth of the patient.';
@@ -37,6 +37,16 @@ class ProfileUpdateModel extends FlutterFlowModel<ProfileUpdateWidget> {
     return null;
   }
 
+  // State field(s) for dateOfBirth widget.
+  FocusNode? dateOfBirthFocusNode2;
+  TextEditingController? dateOfBirthTextController2;
+  final dateOfBirthMask2 = MaskTextInputFormatter(mask: '##/##/####');
+  String? Function(BuildContext, String?)? dateOfBirthTextController2Validator;
+  // State field(s) for dateOfBirth widget.
+  FocusNode? dateOfBirthFocusNode3;
+  TextEditingController? dateOfBirthTextController3;
+  final dateOfBirthMask3 = MaskTextInputFormatter(mask: '##/##/####');
+  String? Function(BuildContext, String?)? dateOfBirthTextController3Validator;
   // State field(s) for description widget.
   FocusNode? descriptionFocusNode;
   TextEditingController? descriptionTextController;
@@ -44,7 +54,7 @@ class ProfileUpdateModel extends FlutterFlowModel<ProfileUpdateWidget> {
 
   @override
   void initState(BuildContext context) {
-    dateOfBirthTextControllerValidator = _dateOfBirthTextControllerValidator;
+    dateOfBirthTextController1Validator = _dateOfBirthTextController1Validator;
   }
 
   @override
@@ -61,8 +71,14 @@ class ProfileUpdateModel extends FlutterFlowModel<ProfileUpdateWidget> {
     addressFocusNode?.dispose();
     addressTextController?.dispose();
 
-    dateOfBirthFocusNode?.dispose();
-    dateOfBirthTextController?.dispose();
+    dateOfBirthFocusNode1?.dispose();
+    dateOfBirthTextController1?.dispose();
+
+    dateOfBirthFocusNode2?.dispose();
+    dateOfBirthTextController2?.dispose();
+
+    dateOfBirthFocusNode3?.dispose();
+    dateOfBirthTextController3?.dispose();
 
     descriptionFocusNode?.dispose();
     descriptionTextController?.dispose();
