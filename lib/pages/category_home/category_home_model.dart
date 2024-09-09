@@ -12,18 +12,25 @@ class CategoryHomeModel extends FlutterFlowModel<CategoryHomeWidget> {
   FocusNode? searchInputFocusNode;
   TextEditingController? searchInputTextController;
   String? Function(BuildContext, String?)? searchInputTextControllerValidator;
+
   // State field(s) for ChoiceChips widget.
   FormFieldController<List<String>>? choiceChipsValueController;
+
   List<String>? get choiceChipsValues => choiceChipsValueController?.value;
-  set choiceChipsValues(List<String>? val) =>
-      choiceChipsValueController?.value = val;
+
+  set choiceChipsValues(List<String>? val) {
+    choiceChipsValueController?.value = val;
+  }
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    // Add any initialization logic here.
+  }
 
   @override
   void dispose() {
     searchInputFocusNode?.dispose();
     searchInputTextController?.dispose();
+    choiceChipsValueController?.dispose();
   }
 }
