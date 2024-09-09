@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>786974954352-iebnrat3p1m7tjg58f4h1rvqk3ho6ncv.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.786974954352-iebnrat3p1m7tjg58f4h1rvqk3ho6ncv</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCPHxK4d8Bifi7e3jKIkDmbo9SRnAWC3i8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>786974954352</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.prime.merchantsapp</string>
+	<key>PROJECT_ID</key>
+	<string>tudds-ccd0wn</string>
+	<key>STORAGE_BUCKET</key>
+	<string>tudds-ccd0wn.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:786974954352:ios:c206aac3177752b59bb5b5</string>
+	<key>DATABASE_URL</key>
+	<string>https://tudds-ccd0wn-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+</dict>
+</plist>

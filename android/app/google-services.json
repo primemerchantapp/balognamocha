@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "786974954352",
+    "firebase_url": "https://tudds-ccd0wn-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "tudds-ccd0wn",
+    "storage_bucket": "tudds-ccd0wn.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:786974954352:android:95ddf0a0cf0baa619bb5b5",
+        "android_client_info": {
+          "package_name": "com.prime.merchantsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "786974954352-veb89vki2k2m7bf7d0kb2hoho1gikqqh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdbZMsBlWV2OmznR8EYfHNZUHxI_pULHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "786974954352-veb89vki2k2m7bf7d0kb2hoho1gikqqh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "786974954352-iebnrat3p1m7tjg58f4h1rvqk3ho6ncv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.prime.merchantsapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
